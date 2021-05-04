@@ -1,0 +1,20 @@
+items:
+    -
+        title: Home
+        nesting: 1
+        type: static-page
+        code: ''
+        reference: index
+        replace: 0
+        viewBag:
+            locale:
+                uk:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            note: ''
+            image: ''
+            color: ''
+name: navMenu
