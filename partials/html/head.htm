@@ -1,0 +1,48 @@
+;;
+[localePicker]
+forceUrl = 0
+
+[session]
+security = "all"
+==
+
+function onStart()
+{
+    $this->addJs([
+        'assets/main.js'
+    ], ['defer' => true]);
+    $this->addCss([
+        'assets/main.css'
+    ], ['defer' => true]);
+}
+
+==
+{##}
+
+<!DOCTYPE html>
+<html lang="{{ activeLocale }}">
+    <head>
+        <meta charset="utf-8">
+
+        <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% if this.page.meta_title %}
+            <meta name="title" content="{{ this.page.meta_title }}">
+        {% endif %}
+
+        {% if this.page.meta_description %}
+            <meta name="description" content="{{ this.page.meta_description }}">
+        {% endif %}
+
+        {% if this.theme.favicon %}
+            <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
+        {% endif %}
+
+        {# framework scripts #}
+        <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
+
+        {% styles %}
+        
+    </head>
