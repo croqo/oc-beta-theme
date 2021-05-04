@@ -3,3 +3,38 @@ description: "Bulma: the modern CSS framework that just works. \r\nhttps://bulma
 author: Croqo
 homepage: 'https://croc.work'
 code: Croqo.Bulma
+require:
+    - RainLab.Translate
+    - RainLab.Pages
+    - RainLab.Blog
+    - RainLab.User
+form:
+    fields:
+        title:
+            label: Your website short name
+            default: Demo website
+            translatable: true         
+        subtitle:
+            label: Now try to describe your business in one sentence
+            default: OctoberCMS theme (under development)
+            translatable: true  
+        logo:
+            label: Full-size logo
+            type: mediafinder
+            mode: image
+            span: auto
+        favicon:
+            label: PNG favicon
+            type: mediafinder
+            mode: image
+            imageWidth: 128px
+            imageHeight: 128px
+        contact_address:
+            label: The address, where visitors can find your office
+            translatable: true 
+        contact_phone:
+            label: Contact phone number
+        contact_email:
+            label: Official your@company.email
+        contact_telegram:
+            label: Official telegram @account               
