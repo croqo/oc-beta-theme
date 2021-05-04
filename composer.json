@@ -1,0 +1,9 @@
+{
+    "name": "croqo/bulma-theme",
+    "version": "0.1.0",
+    "type": "october-theme",
+    "description": "Bulma: the modern CSS framework that just works. https://bulma.io",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "bulma",
+  "version": "0.1.0",
+  "scripts": {
+    "b": "webpack",
+    "w": "webpack watch"
+  },
+  "devDependencies": {
+    "bulma": "~0.9.2",
+    "css-loader": "^5.2.4",
+    "css-minimizer-webpack-plugin": "^2.0.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "sass": "^1.32.12",
+    "sass-loader": "11.0.1",
+    "terser-webpack-plugin": "5.1.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
+  }
+}
