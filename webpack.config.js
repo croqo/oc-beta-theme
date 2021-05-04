@@ -21,6 +21,9 @@ module.exports = {
         path: path.resolve(__dirname, 'assets'),
         clean: true
     },
+    externals: {
+        jquery: ['$', 'jQuery']
+    },
     module: {
         rules: [
             {
@@ -39,7 +42,7 @@ module.exports = {
             events: {
                 onEnd: {
                     copy: [
-                        { source: 'images/*', destination: 'images' }
+                        { source: './export', destination: '../assets' }
                     ]
                 }
             }
