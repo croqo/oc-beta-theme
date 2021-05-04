@@ -1,0 +1,27 @@
+[staticPage]
+useContent = 0
+default = 0
+
+==
+{##}
+
+{% partial 'html/head' this=this %}   
+
+{repeater name="sections" tab="content" prompt="Add a section"}
+    {variable name="title" type="text" span="left"}{/variable}
+    {variable name="content" type="richeditor"}{/variable}
+{/repeater}
+
+<body>
+
+
+{% for section in sections %}
+    <section id="{{ section.title|slug }}">
+        <h2>{{ section.title }}</h2>
+        {{ section.content|raw }}
+    </section>
+{% endfor %}
+
+</body>
+
+{% partial 'html/foot' %} 
