@@ -6,12 +6,15 @@
     "w": "webpack watch"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "bulma": "~0.9.2",
-    "jquery": "3.6.0",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "filemanager-webpack-plugin": "^4.0.0",
+    "jquery": "3.6.0",
     "mini-css-extract-plugin": "^1.6.0",
+    "mini-svg-data-uri": "^1.2.3",
     "sass": "^1.32.12",
     "sass-loader": "11.0.1",
     "terser-webpack-plugin": "5.1.1",

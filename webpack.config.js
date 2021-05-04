@@ -5,7 +5,8 @@ const
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     TerserWebpackPlugin = require('terser-webpack-plugin'),
-    FileManagerPlugin = require('filemanager-webpack-plugin')
+    FileManagerPlugin = require('filemanager-webpack-plugin'),
+    svgToMiniDataURI = require('mini-svg-data-uri')
 ;
 module.exports = {
     // mode: 'development',
@@ -32,6 +33,16 @@ module.exports = {
                     MiniCssExtractPlugin.loader, 
                     'css-loader', 'sass-loader'
                 ]
+            },
+            {
+                test: /\.svg/,
+                type: 'asset/inline',
+               generator: {
+                 dataUrl: content => {
+                   content = content.toString();
+                   return svgToMiniDataURI(content);
+                 }
+               }
             }
         ]
     },

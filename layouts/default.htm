@@ -8,6 +8,15 @@ security = "all"
 useContent = 1
 default = 1
 ==
+
+function onStart()
+{
+    $this->addJs([
+        'assets/main.js'
+    ], ['defer' => true]);
+}
+
+==
 {##}
 
 <!DOCTYPE html>
