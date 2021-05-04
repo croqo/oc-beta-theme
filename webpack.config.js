@@ -4,7 +4,8 @@ const
     webpack = require('webpack'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
-    TerserWebpackPlugin = require('terser-webpack-plugin')
+    TerserWebpackPlugin = require('terser-webpack-plugin'),
+    FileManagerPlugin = require('filemanager-webpack-plugin')
 ;
 module.exports = {
     // mode: 'development',
@@ -33,7 +34,16 @@ module.exports = {
     },
     plugins: [
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new FileManagerPlugin({
+            events: {
+                onEnd: {
+                    copy: [
+                        { source: 'images/*', destination: 'images' }
+                    ]
+                }
+            }
+        })
     ],
     optimization: {
         minimizer: [
