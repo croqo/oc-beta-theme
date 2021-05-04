@@ -9,9 +9,19 @@ code = "menu-nav"
             <a class="navbar-item" href="#">
                 <img id="brand" class="image" src="{{ this.theme.logo|media }}" alt="{{ this.theme.title }}" />
             </a>
-            <div class="navbar-burger is-vcentered" data-target="navMenu">
-                <a class="image" onclick="$('.navbar-menu').toggleClass('is-active')"><i class="icon-menu"></i></a>
-            </div>
+            <a role="button" 
+                class="navbar-burger" 
+                aria-label="menu" 
+                aria-expanded="false" 
+                data-target="navMenu" 
+                onclick="$('.navbar-menu').toggleClass('is-active')">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+            </a>
+            {# <div class="navbar-burger is-vcentered" data-target="navMenu">
+                <a class="image" ><i class="icon-menu"></i></a>
+            </div> #}
         </div>
         
         <div id="navMenu" class="navbar-menu">
