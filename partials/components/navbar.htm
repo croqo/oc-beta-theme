@@ -1,0 +1,39 @@
+;;
+[staticMenu]
+code = "menu-nav"
+==
+{##}
+<nav class="navbar is-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img id="brand" class="image" src="{{ this.theme.logo|media }}" alt="{{ this.theme.title }}" />
+            </a>
+            <div class="navbar-burger is-vcentered" data-target="navMenu">
+                <a class="image" onclick="$('.navbar-menu').toggleClass('is-active')"><i class="icon-menu"></i></a>
+            </div>
+        </div>
+        
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                
+                {% for item in staticMenu.menuItems %}
+                    <a 
+                    class="navbar-item is-tab{% if item.isActive %} is-active{% endif %}" 
+                    href="{{ item.url }}">
+                        {{ item.title }}
+                    </a>
+                {% endfor %}
+                {# <a href="#" class="navbar-item is-tab">Test</a> #}
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-link is-outlined is-rounded">Push the button</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
