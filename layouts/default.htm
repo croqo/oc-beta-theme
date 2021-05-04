@@ -14,6 +14,9 @@ function onStart()
     $this->addJs([
         'assets/main.js'
     ], ['defer' => true]);
+    $this->addCss([
+        'assets/main.css'
+    ], ['defer' => true]);
 }
 
 ==
@@ -27,18 +30,19 @@ function onStart()
         <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         {% if this.page.meta_title %}
             <meta name="title" content="{{ this.page.meta_title }}">
         {% endif %}
+
         {% if this.page.meta_description %}
             <meta name="description" content="{{ this.page.meta_description }}">
         {% endif %}
 
-        <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
+        {% if this.theme.favicon %}
+            <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
+        {% endif %}
 
-
-        {# theme styles #}
-        <link defer rel="stylesheet" type="text/css" href="{{ 'assets/main.css'|theme }}">
         {# framework scripts #}
         <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
 
