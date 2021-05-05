@@ -1,0 +1,19 @@
+;;
+==
+{##}
+
+{% if hero %}
+    <section class="section is-paddingless" data-anchor="{{ hero.slug|slug }}">
+        <div class="hero is-fullheight">
+        
+            <header class="hero-head">
+                <h2 class="title">{{ hero.title }}</h2>
+                <h4 class="subtitle">{{ hero.subtitle }}</h4>
+            </header>
+            <main class="hero-body">
+                {{ hero.main|raw }}
+            </main>
+            <footer class="hero-foot"></footer>
+        </div>
+    </section>
+{% endif %}

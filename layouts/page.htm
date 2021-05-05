@@ -1,26 +1,28 @@
 [staticPage]
 useContent = 0
-default = 0
+default = 1
 
 ==
 {##}
 
 {% partial 'html/head' this=this %}   
 
-{repeater name="sections" tab="Hero" prompt="Add a section"}
-    {variable name="title" type="text" placeholder="Page title" span="left"}{/variable}
+{repeater name="sections"  prompt="Add a section"}
+    {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
     {variable name="slug" type="text" placeholder="Page id" preset="title" span="right"}{/variable}
+    {variable name="subtitle" label="Page top subtitle" span="full" type="richeditor" size="small"}{/variable}
     {variable name="main" placeholder="This is the input for your great post" type="richeditor"}{/variable}
 {/repeater}
 
 <body class="layout-{{ this.layout.id }} page-{{ this.page.id }}">
 
-{% for section in sections %}
-    <section id="{{ section.title|slug }}">
-        <h2>{{ section.title }}</h2>
-        {{ section.main|raw }}
-    </section>
-{% endfor %}
+    {% partial 'components/navbar' this=this %}
+
+    {% if sections %}
+        {% for section in sections %}
+            {% partial 'blocks/hero' hero=section %}
+        {% endfor %}
+    {% endif %}
 
 </body>
 
