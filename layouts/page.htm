@@ -7,18 +7,18 @@ default = 0
 
 {% partial 'html/head' this=this %}   
 
-{repeater name="sections" tab="content" prompt="Add a section"}
-    {variable name="title" type="text" span="left"}{/variable}
-    {variable name="content" type="richeditor"}{/variable}
+{repeater name="sections" tab="Hero" prompt="Add a section"}
+    {variable name="title" type="text" placeholder="Page title" span="left"}{/variable}
+    {variable name="slug" type="text" placeholder="Page id" preset="title" span="right"}{/variable}
+    {variable name="main" placeholder="This is the input for your great post" type="richeditor"}{/variable}
 {/repeater}
 
-<body>
-
+<body class="layout-{{ this.layout.id }} page-{{ this.page.id }}">
 
 {% for section in sections %}
     <section id="{{ section.title|slug }}">
         <h2>{{ section.title }}</h2>
-        {{ section.content|raw }}
+        {{ section.main|raw }}
     </section>
 {% endfor %}
 
