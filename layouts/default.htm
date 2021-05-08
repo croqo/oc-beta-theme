@@ -1,0 +1,84 @@
+[viewBag]
+
+[localePicker]
+forceUrl = 0
+
+[session]
+security = "all"
+
+[staticPage]
+useContent = 0
+default = 1
+==
+<?php
+function onStart()
+{
+    $this->addJs([
+        'assets/main.js'
+    ], ['defer' => true]);
+    $this->addCss([
+        'assets/main.css'
+    ], ['defer' => true]);
+}
+?>
+==
+{##}
+
+<!DOCTYPE html>
+<html lang="{{ activeLocale }}">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if this.page.meta_title %}
+        <meta name="title" content="{{ this.page.meta_title }}">
+    {% endif %}
+
+    {% if this.page.meta_description %}
+        <meta name="description" content="{{ this.page.meta_description }}">
+    {% endif %}
+
+    {% if this.theme.favicon %}
+        <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
+    {% endif %}
+
+    {# framework scripts #}
+    <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
+    
+    {# <script defer src="{{ }}"></script> #}
+
+    {% partial 'google/tag' %}
+
+    {% styles %} 
+    
+</head>
+
+{repeater name="sections"  prompt="Add a section"}
+    {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
+    {variable name="slug" type="text" placeholder="Page id" preset="title" span="right"}{/variable}
+    {variable name="subtitle" label="Page top subtitle" span="full" type="text" size="small"}{/variable}
+    {variable name="main" placeholder="This is the input for your great post" type="richeditor"}{/variable}
+    {variable name="foot" type="switch" label="Finalize with footer"}{/variable}
+{/repeater}
+
+<body class="app-{{ this.theme.title }} layout-{{ this.layout.id }} page-{{ this.page.id }}">
+	{% partial 'google/tag-no-script' %}
+    {% partial 'components/navbar' data = this %}
+
+    {% if sections %}
+        {% for section in sections %}
+
+            {% partial 'blocks/section' data = section %}
+            
+        {% endfor %}
+    {% endif %}
+
+    {% scripts %}
+    
+</body> 
+
+</html>
