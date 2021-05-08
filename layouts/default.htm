@@ -37,10 +37,17 @@ default = 1
     {# framework scripts #}
     <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
     
+    {# theme assets bundle #}
     <script defer src="{{ mix('/index.js') }}"></script>
     <link defer rel="stylesheet" href="{{ mix('/style.css') }}">
 
-    {% partial 'google/tag' %}
+	{% if this.theme.google_meta %}
+        {% partial 'google/tag' data = this.theme.google_meta %}
+    {% endif %}
+
+	{% if this.theme.google_tag %}
+        {% partial 'google/tag' data = this.theme.google_tag %}
+    {% endif %}
 
     {% styles %} 
     
@@ -55,7 +62,11 @@ default = 1
 {/repeater}
 
 <body class="app-{{ this.theme.title }} layout-{{ this.layout.id }} page-{{ this.page.id }}">
-	{% partial 'google/tag-no-script' %}
+
+	{% if this.theme.google_tag %}
+        {% partial 'google/tag-no-script' data = this.theme.google_tag %}
+    {% endif %}
+
     {% partial 'components/navbar' data = this %}
 
     {% if sections %}

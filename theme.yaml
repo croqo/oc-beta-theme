@@ -47,6 +47,9 @@ form:
             contact_telegram:
                 label: Official telegram @account   
                 tab: Contacts
-            google_tag_manager:
+            google_tag:
                 label: Google Tag Manager ID
+                tab: Google
+            google_meta:
+                label: Google site verivication (key only)
                 tab: Google
