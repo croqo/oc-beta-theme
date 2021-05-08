@@ -42,12 +42,14 @@ default = 1
     <link defer rel="stylesheet" href="{{ mix('/style.css') }}">
 
 	{% if this.theme.google_meta %}
-        {% partial 'google/tag' data = this.theme.google_meta %}
+        {% partial 'google/verification-meta' data = this.theme.google_meta %}
     {% endif %}
 
-	{% if this.theme.google_tag %}
+	{# 
+    {% if this.theme.google_tag %}
         {% partial 'google/tag' data = this.theme.google_tag %}
-    {% endif %}
+    {% endif %} 
+    #}
 
     {% styles %} 
     
@@ -67,7 +69,7 @@ default = 1
         {% partial 'google/tag-no-script' data = this.theme.google_tag %}
     {% endif %}
 
-    {% partial 'components/navbar' data = this %}
+    {% partial 'components/navbar' data = this.theme %}
 
     {% if sections %}
         {% for section in sections %}
