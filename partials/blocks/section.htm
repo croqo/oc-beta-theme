@@ -1,0 +1,9 @@
+[viewBag]
+==
+{##}
+
+{% if data %}
+    <section class="section is-paddingless" data-anchor="{{ data.slug|slug }}">
+        {% partial 'blocks/hero' data = data %}
+    </section>
+{% endif %}

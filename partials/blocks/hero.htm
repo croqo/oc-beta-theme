@@ -1,21 +1,25 @@
 ;;
 ==
 {##}
+<div class="hero is-fullheight">
 
-{% if hero %}
-    <section class="section is-paddingless" data-anchor="{{ hero.slug|slug }}">
-        <div class="hero is-fullheight">
-        
-            <header class="hero-head">
-                <div class="container has-text-centered">
-                    <h2 class="title">{{ hero.title }}</h2>
-                    <h4 class="subtitle">{{ hero.subtitle }}</h4>
-                </div>
-            </header>
-            <main class="hero-body">
-                {{ hero.main|raw }}
-            </main>
-            <footer class="hero-foot"></footer>
+    <div class="hero-head">
+        <div class="container has-text-centered">
+            <h2 class="title">{{ data.title }}</h2>
+            <h4 class="subtitle">{{ data.subtitle }}</h4>
         </div>
-    </section>
-{% endif %}
+    </div>
+
+    <article class="hero-body">
+        <div class="container has-text-centered">
+            {{ data.main|raw }}
+        </div>
+    </article>
+
+    <div class="hero-foot">
+        {% if data.foot %}
+        {% partial "blocks/footer" %}
+        {% endif %}
+    </div>
+
+</div>
