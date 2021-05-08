@@ -10,18 +10,6 @@ security = "all"
 useContent = 0
 default = 1
 ==
-<?php
-function onStart()
-{
-    $this->addJs([
-        'assets/main.js'
-    ], ['defer' => true]);
-    $this->addCss([
-        'assets/main.css'
-    ], ['defer' => true]);
-}
-?>
-==
 {##}
 
 <!DOCTYPE html>
@@ -49,7 +37,8 @@ function onStart()
     {# framework scripts #}
     <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
     
-    {# <script defer src="{{ }}"></script> #}
+    <script defer src="{{ mix('/index.js') }}"></script>
+    <link defer rel="stylesheet" href="{{ mix('/style.css') }}">
 
     {% partial 'google/tag' %}
 

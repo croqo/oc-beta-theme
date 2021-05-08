@@ -6,35 +6,47 @@ code: Croqo.Bulma
 require:
     - RainLab.Translate
     - RainLab.Pages
-    - RainLab.Blog
     - RainLab.User
+    - Ompmega.MixHelper
 form:
-    fields:
-        title:
-            label: Your website short name
-            default: Demo website
-            translatable: true         
-        subtitle:
-            label: Now try to describe your business in one sentence
-            default: OctoberCMS theme (under development)
-            translatable: true  
-        logo:
-            label: Full-size logo
-            type: mediafinder
-            mode: image
-            span: auto
-        favicon:
-            label: PNG favicon
-            type: mediafinder
-            mode: image
-            imageWidth: 128px
-            imageHeight: 128px
-        contact_address:
-            label: The address, where visitors can find your office
-            translatable: true 
-        contact_phone:
-            label: Contact phone number
-        contact_email:
-            label: Official your@company.email
-        contact_telegram:
-            label: Official telegram @account               
+    tabs:
+        fields:
+            title:
+                label: Your website short name
+                default: Demo website
+                translatable: true
+                tab: Brand        
+            subtitle:
+                label: Now try to describe your business in one sentence
+                default: OctoberCMS theme (under development)
+                translatable: true  
+                tab: Brand         
+            logo:
+                label: Full-size logo
+                type: mediafinder
+                mode: image
+                span: left
+                tab: Brand         
+            favicon:
+                label: Favicon
+                type: mediafinder
+                mode: image
+                span: right
+                size: tiny
+                tab: Brand         
+            contact_address:
+                label: The address, where visitors can find your office
+                translatable: true 
+                tab: Contacts
+            contact_phone:
+                label: Contact phone number
+                tab: Contacts
+            contact_email:
+                label: Official your@company.email
+                tab: Contacts
+            contact_telegram:
+                label: Official telegram @account   
+                tab: Contacts
+            google_tag_manager:
+                label: Google Tag Manager ID
+                tab: Google
