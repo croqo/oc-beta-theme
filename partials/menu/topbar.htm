@@ -1,0 +1,75 @@
+[staticMenu topBar]
+code = "topBar"
+
+[viewBag]
+==
+{##}
+
+
+
+<div class="navbar is-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img id="brand" class="image" src="{{ theme.logo|media }}" alt="{{ theme.title }}" />
+            </a>
+            <a role="button" 
+                class="navbar-burger" 
+                aria-label="menu" 
+                aria-expanded="false" 
+                data-target="navMenu" 
+                onclick="$('.navbar-menu').toggleClass('is-active')">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+
+        <nav id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                
+                {% for item in topBar.menuItems() %}
+                    <a 
+                    class="navbar-item {% if item.isActive == false %} is-active{% endif %}" 
+                    href="{{ item.url }}">
+                        {{ item.title }}
+                    </a>
+                {% endfor %}
+                {# <a href="#" class="navbar-item is-tab">Test</a> #}
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button">Push the button</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+</div>1c13.2-43.6,41.6-95.3,82.7-123.8c15.6-10.9,31.7-12.6,49.1-4.9c30.3,13.3,55.1,33.9,76.6,58.6
+		c20.2,23.1,35.6,49,42.7,79.1c8.8,37.1,1.7,72.2-16.2,105.1c-30,54.5-76.9,86.5-109,94.8c-2.6,0.7-4.3,0.6-4.3-3
+		c0.1-21.4-0.1-44.7,0-66.1c22.9-31.8,46.7-50.9,62.3-85.5c0.7-1.3,0.2-3.2,0.2-4.8c-1.6,0.5-3.5,0.6-4.6,1.7
+		C237.1,236.2,223.6,250.5,203.1,272.9z"/>
+</g>
+<g id="Layer_2">
+	<g>
+		<g class="st2">
+			<path d="M337.6,279.7c-21.3,15.8-111.1,55.9-135.1,72c-0.1,19.3-0.1,27.6-0.1,33.7c35.6-27.4,135.1-99.2,135.1-99.2V279.7z"/>
+			<path d="M202.5,139.7c8.7-8.4,28.9-28.8,35.3-29.4c1,6-22.5,43-35.4,61.3c0.2,34.2,0.2,73.1,0.2,110.7
+				c11.6-13.2,44-45.9,57.7-59.4c0-2.3-0.1-1-0.1-4c-7.2-5.6-16.6-14.7-16.6-14.7l81.2-75.9v-5.2L193.6,39.9l-21.4,25.3l7.1,317.3
+				c0,0,1.3,0.6,2.9,2.9c0-8.4,3.8-334.3,10.5-334.3C199.8,51.1,202.5,137.2,202.5,139.7z"/>
+		</g>
+		<g>
+			<path class="st3" d="M275.3,231.2c-19.6,17.8-54,53.3-72.7,75.2c-0.1,20.8,0,69.5,0,76.1c39.1-30.5,94.5-72.9,135.1-102.8
+				C322.9,268.5,288.7,241.9,275.3,231.2z"/>
+			<path class="st3" d="M202.2,137.4c9.4-9.5,26.4-26.3,33.3-26.9c1.1,6.4-19.1,33.1-33.2,52.9c-0.2,38.7,0.3,74.9,0.3,115.6
+				c17.8-19.3,42.7-45.4,57.5-59.9c-5.4-4-18.3-16.4-18.3-16.4l83-79.4L193.6,14.6L88.2,105.7L62.4,278.4c0,0,102.9,91.9,116.9,104
+				c0-9.1,5.3-331.4,13.5-331.4C200.9,51.1,202.2,134,202.2,137.4z"/>
+		</g>
+	</g>
+</g>
+</svg>

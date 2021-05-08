@@ -1,0 +1,66 @@
+;;
+[staticMenu]
+code = "contacts"
+
+[viewBag]
+==
+{##}
+
+
+<h3 class="title">{{ staticMenu.menuName|_ }}</h3>
+
+<div class="subtitle card-content">
+
+<address class="menu">
+
+    <ul class="menu-list columns">
+
+            {% for item in staticMenu.menuItems() %}
+            {# menuItem 
+
+                type	        string	
+                title	        string	
+                url	            string	
+                code	        string	
+                isActive	    boolean	
+                isChildActive	NULL	
+                items	        array()	
+                viewBag	        array()
+
+            #}
+            <li 
+                class="column" 
+
+                {% if item.code %} 
+                    id="code-{{ item.code }}"
+                {% endif %}
+                
+                role="presentation" 
+
+                {% if item.isActive %}
+                    class="is-active"
+                {% endif %}
+
+                >
+
+                <a 
+                    href="{{ item.url }}" 
+                >
+
+                    {{ item.title }}
+
+                </a>
+
+            </li>
+
+            {% endfor %}
+
+    </ul>
+
+</address>
+
+</div>
+
+
+
+
