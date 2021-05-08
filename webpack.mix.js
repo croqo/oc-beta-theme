@@ -1,12 +1,9 @@
 const
     path = require('path'),
-    // home = require('os').homedir(),
     mix = require('laravel-mix'),
-    // webpack = require('webpack'),
-    // MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    webpack = require('webpack'),
     // CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     // TerserWebpackPlugin = require('terser-webpack-plugin'),
-    // FileManagerPlugin = require('filemanager-webpack-plugin'),
     svgToMiniDataURI = require('mini-svg-data-uri')
 ;
 mix.webpackConfig
@@ -19,10 +16,7 @@ mix.webpackConfig
                 path.resolve(__dirname, 'node_modules')
             ],
         },
-        // context: path.resolve(__dirname, '_source'),
-        // entry: ()=>'./',
         output: {
-        //     path: path.resolve(__dirname, 'assets'),
             clean: true
         },
         externals: {
@@ -30,13 +24,6 @@ mix.webpackConfig
         },
         module: {
             rules: [
-                // {
-                //     test: /\.(sa|sc|c)ss$/,
-                //     use: [
-                //         MiniCssExtractPlugin.loader, 
-                //         'css-loader', 'sass-loader'
-                //     ]
-                // },
                 {
                     test: /\.svg/,
                     type: 'asset/inline',
@@ -49,19 +36,9 @@ mix.webpackConfig
                 }
             ]
         },
-        // plugins: [
-        //     new webpack.ProgressPlugin(),
-        //     new MiniCssExtractPlugin(),
-        //     new FileManagerPlugin({
-        //         events: {
-        //             onEnd: {
-        //                 copy: [
-        //                     { source: './export', destination: '../assets' }
-        //                 ]
-        //             }
-        //         }
-        //     })
-        // ],
+        plugins: [
+            new webpack.ProgressPlugin(),
+        ],
         // optimization: {
         //     minimizer: [
         //       `...`,
