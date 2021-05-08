@@ -4,3 +4,4 @@ package-lock.json
 .push.settings.jsonc
 /assets/
 /meta/
+/content/
