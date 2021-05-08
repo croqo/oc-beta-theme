@@ -3,11 +3,12 @@ import * as ico from '@fortawesome/free-solid-svg-icons';
 
 
 $(()=>{
-   let h = $("nav").height();
-   $(".hero-head").each((index,item)=>{
-       $(item).css({
-        "padding-top": h+"px"
-        });
-        console.log(h);
-      })
+  let h = $("nav").height();
+  $(".hero-head").each((index,item)=>{
+    $(item).css({
+    "padding-top": h
+    });
+    console.log(`Head height: ${h}`);
+  });
+
 });
