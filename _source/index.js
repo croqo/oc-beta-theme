@@ -1,6 +1,7 @@
 import { library, icon } from '@fortawesome/fontawesome-svg-core';
 import * as ico from '@fortawesome/free-solid-svg-icons';
 import fullpage from 'fullpage.js';
+import fullpageLicenseKey from './fullpageLicenseKey';
 
 
 $(()=>{
@@ -8,7 +9,8 @@ $(()=>{
   initTables();
 
   new fullpage('#fullpage', {
-    licenseKey: "",
+    licenseKey: fullpageLicenseKey(),
+    fixedElements: ".is-fixed-top",
     autoScrolling: true,
     afterLoad: function(origin, destination, direction){
       console.log([origin, destination, direction])
