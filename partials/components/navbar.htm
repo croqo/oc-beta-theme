@@ -8,9 +8,11 @@ code = "navBar"
 <nav class="navbar is-fixed-top">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item is-paddingless" href="#">
-                <object id="brand-logo" width="132" height="48" class="tile" data="{{ data.logo|media }}" /></object>
+            <a class="navbar-item" href="{{ '/'|app }}">
+                <h1 class="is-family-monospace is-uppercase is-size-4">{{ data.title }}</h1>
             </a>
+
+                {# <object class="is-overflow" data="{{ data.logo|media }}" /></object> #}
             <a role="button" 
                 class="navbar-burger" 
                 aria-label="menu" 
