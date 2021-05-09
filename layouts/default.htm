@@ -1,10 +1,6 @@
 [viewBag]
 
-[localePicker]
-forceUrl = 0
 
-[session]
-security = "all"
 
 [staticPage]
 useContent = 0
@@ -12,48 +8,7 @@ default = 1
 ==
 {##}
 
-<!DOCTYPE html>
-<html lang="{{ activeLocale }}">
-<head>
-
-    <meta charset="utf-8">
-
-    <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% if this.page.meta_title %}
-        <meta name="title" content="{{ this.page.meta_title }}">
-    {% endif %}
-
-    {% if this.page.meta_description %}
-        <meta name="description" content="{{ this.page.meta_description }}">
-    {% endif %}
-
-    {% if this.theme.favicon %}
-        <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
-    {% endif %}
-
-    {# framework scripts #}
-    <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
-    
-    {# theme assets bundle #}
-    <script defer src="{{ mix('/index.js') }}"></script>
-    <link defer rel="stylesheet" href="{{ mix('/style.css') }}">
-
-	{% if this.theme.google_meta %}
-        {% partial 'google/verification-meta' data = this.theme.google_meta %}
-    {% endif %}
-
-    {% if this.theme.google_tag %}
-        {% partial 'google/tag' data = this.theme.google_tag %}
-    {% endif %} 
-
-    {% styles %} 
-    
-</head>
-
-{repeater name="sections"  prompt="Add a section"}
+{repeater name="sections" tab="sections" prompt="Add a section"}
     {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
     {variable name="slug" type="text" placeholder="Page id" preset="title" span="right"}{/variable}
     {variable name="subtitle" label="Page top subtitle" span="full" type="text" size="small"}{/variable}
@@ -61,7 +16,8 @@ default = 1
     {variable name="foot" type="switch" label="Finalize with footer"}{/variable}
 {/repeater}
 
-<body class="app-{{ this.theme.title }} layout-{{ this.layout.id }} page-{{ this.page.id }}">
+{% partial 'html/head' this = this %}
+
 
 	{% if this.theme.google_tag %}
         {% partial 'google/tag-no-script' data = this.theme.google_tag %}
@@ -71,9 +27,7 @@ default = 1
 
     {% if sections %}
         {% for section in sections %}
-
             {% partial 'blocks/section' data = section %}
-            
         {% endfor %}
     {% endif %}
 

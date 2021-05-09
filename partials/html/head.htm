@@ -5,44 +5,46 @@ forceUrl = 0
 [session]
 security = "all"
 ==
-
-function onStart()
-{
-    $this->addJs([
-        'assets/main.js'
-    ], ['defer' => true]);
-    $this->addCss([
-        'assets/main.css'
-    ], ['defer' => true]);
-}
-
-==
 {##}
 
 <!DOCTYPE html>
 <html lang="{{ activeLocale }}">
-    <head>
-        <meta charset="utf-8">
+<head>
 
-        <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
 
-        {% if this.page.meta_title %}
-            <meta name="title" content="{{ this.page.meta_title }}">
-        {% endif %}
+    <title>{{ this.page.title }} | {{ this.theme.title|_ }}</title>
 
-        {% if this.page.meta_description %}
-            <meta name="description" content="{{ this.page.meta_description }}">
-        {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% if this.theme.favicon %}
-            <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
-        {% endif %}
+    {% if this.page.meta_title %}
+        <meta name="title" content="{{ this.page.meta_title }}">
+    {% endif %}
 
-        {# framework scripts #}
-        <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
+    {% if this.page.meta_description %}
+        <meta name="description" content="{{ this.page.meta_description }}">
+    {% endif %}
 
-        {% styles %}
-        
-    </head>
+    {% if this.theme.favicon %}
+        <link defer rel="icon" type="image/png" href="{{ this.theme.favicon|media }}">
+    {% endif %}
+
+    {# framework scripts #}
+    <script defer src="{{ ['@jquery','@framework','@framework.extras']|theme }}"></script>
+    
+    {# theme assets bundle #}
+    <script defer src="{{ mix('/index.js') }}"></script>
+    <link defer rel="stylesheet" href="{{ mix('/style.css') }}">
+
+	{% if this.theme.google_meta %}
+        {% partial 'google/verification-meta' data = this.theme.google_meta %}
+    {% endif %}
+
+    {% if this.theme.google_tag %}
+        {% partial 'google/tag' data = this.theme.google_tag %}
+    {% endif %} 
+
+    {% styles %} 
+    
+</head>
+<body class="app-{{ this.theme.title }} layout-{{ this.layout.id }} page-{{ this.page.id }}">
