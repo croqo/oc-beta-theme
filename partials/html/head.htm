@@ -48,3 +48,6 @@ security = "all"
     
 </head>
 <body class="app-{{ this.theme.title }} layout-{{ this.layout.id }} page-{{ this.page.id }}">
+	{% if this.theme.google_tag %}
+        {% partial 'google/tag-no-script' data = this.theme.google_tag %}
+    {% endif %}
