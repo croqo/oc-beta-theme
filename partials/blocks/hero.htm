@@ -4,17 +4,26 @@
 <div class="hero is-fullheight">
 
     <div class="hero-head">
-        <div class="container has-text-centered">
-            <h2 class="title is-size-1">{{ data.title }}</h2>
-            <h4 class="subtitle is-size-3">{{ data.subtitle }}</h4>
+        <div class="container level has-text-centered">
+        <div class="level-left"></div>
+        <div class="level-right">
+            <div class="block">
+                <h1 class="title is-family-sans-serif is-size-1">{{ data.title }}</h2>
+                <h3 class="subtitle is-family-secondary is-size-3">{{ data.subtitle }}</h4>
+            </div>
         </div>
+        </div>
+
     </div>
 
-    <article class="hero-body">
-        <div class="container has-text-centered">
-            {{ data.main|raw }}
+    <main class="hero-body">
+    
+        <div class="container">
+
+                {{ data.main|raw }}
         </div>
-    </article>
+        
+    </main>
 
     <div class="hero-foot">
         {% if data.foot %}
