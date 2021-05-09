@@ -1,0 +1,11 @@
+[viewBag]
+==
+{##}
+
+{% if data %}
+    {% for section in data %}
+
+        {% partial 'blocks/section' data = section %}
+        
+    {% endfor %}
+{% endif %}
