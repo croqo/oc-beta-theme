@@ -1,5 +1,6 @@
-[staticMenu navBar]
-code = "navBar"
+;;
+[staticMenu]
+code = "navbar"
 
 [viewBag]
 ==
@@ -9,10 +10,9 @@ code = "navBar"
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ '/'|app }}">
-                <h1 class="is-family-monospace is-uppercase is-size-4">{{ data.title }}</h1>
-            </a>
-
+                <h1 class="is-family-monospace is-uppercase is-size-3">{{ data.title }}</h1>
                 {# <object class="is-overflow" data="{{ data.logo|media }}" /></object> #}
+            </a>
             <a role="button" 
                 class="navbar-burger" 
                 aria-label="menu" 
@@ -27,23 +27,17 @@ code = "navBar"
         
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-start">
-                
-                {% for item in navBar.menuItems() %}
+                {% for item in staticMenu.menuItems() %}
                     <a 
-                    class="navbar-item {% if item.isActive %} is-active{% endif %}" 
+                    class="navbar-item is-family-secondary is-uppercase is-size-5 {% if item.isActive %} is-active{% endif %}" 
                     href="{{ item.url }}">
                         {{ item.title }}
                     </a>
                 {% endfor %}
-                {# <a href="#" class="navbar-item is-tab">Test</a> #}
+
             </div>
 
             <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-link is-outlined is-rounded">Push the button</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

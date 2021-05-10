@@ -1,28 +1,22 @@
-[viewBag]
-
-
-
+;;
 [staticPage]
 useContent = 0
 default = 1
+
+[viewBag]
 ==
 {##}
-
-{repeater name="sections" tab="sections" prompt="Add a section"}
+{repeater name="sections" tab="full-height sequence" prompt="Add a full-height page" size="small"}
     {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
-    {variable name="slug" type="text" placeholder="Page id" preset="title" span="right"}{/variable}
+    {variable name="slug" type="text" label="Sequence unique ID" placeholder="Page id" preset="title" span="right"}{/variable}
     {variable name="subtitle" label="Page top subtitle" span="full" type="text" size="small"}{/variable}
-    {variable name="main" placeholder="This is the input for your great post" type="richeditor"}{/variable}
+    {variable name="content" placeholder="This is the input for your really great post" type="richeditor"}{/variable}
     {variable name="foot" type="switch" label="Finalize with footer"}{/variable}
 {/repeater}
 
 {% partial 'html/head' this = this %}
 
-
-	{% if this.theme.google_tag %}
-        {% partial 'google/tag-no-script' data = this.theme.google_tag %}
-    {% endif %}
-
+<div id="fullpage">
     {% partial 'components/navbar' data = this.theme %}
 
     {% if sections %}
@@ -30,6 +24,7 @@ default = 1
             {% partial 'blocks/section' data = section %}
         {% endfor %}
     {% endif %}
+</div>
 
     {% scripts %}
     

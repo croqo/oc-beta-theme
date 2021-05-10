@@ -1,8 +1,0 @@
-/node_modules/
-/.vscode/
-/meta/
-/content/
-/assets/
-package-lock.json
-.push.settings.jsonc
-fullpageLicenseKey.js
