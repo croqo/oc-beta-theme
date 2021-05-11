@@ -2,3 +2,4 @@ node_modules/
 assets/
 _source/fullpageLicenseKey.js
 package-lock.json
+.push.settings.*
