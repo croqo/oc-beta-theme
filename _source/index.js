@@ -2,7 +2,11 @@ import { library, icon } from '@fortawesome/fontawesome-svg-core';
 import * as ico from '@fortawesome/free-solid-svg-icons';
 import fullpage from 'fullpage.js';
 import fullpageLicenseKey from './fullpageLicenseKey';
+import lottie from 'lottie-web';
 
+globalThis.App = {
+    motion: new Map()
+};
 
 $(()=>{
   initPaddingTop();
@@ -10,10 +14,25 @@ $(()=>{
 
   new fullpage('#fullpage', {
     licenseKey: fullpageLicenseKey(),
-    fixedElements: ".is-fixed-top",
     autoScrolling: true,
+    fixedElements: ".is-fixed-top",
+    normalScrollElements: ".is-normal-scroll",
     afterLoad: function(origin, destination, direction){
-      console.log([origin, destination, direction])
+        $('.lottie').each((index, element)=>{
+            const
+                name = $(element).data('name'),
+                path = $(element).data('path')
+            ;
+            App.motion.set(index, lottie.loadAnimation(
+                {
+                    name: name,
+                    container: element,
+                    path: path
+                }
+            ));
+        });
+      console.log([origin, destination, direction]);
+      console.log(App)
     }
   });
 
