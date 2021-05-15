@@ -8,8 +8,8 @@
         <div class="level-left"></div>
         <div class="level-right">
             <div class="block">
-                <h1 class="title is-family-sans-serif is-size-1">{{ data.title }}</h2>
-                <h3 class="subtitle is-family-secondary is-size-3">{{ data.subtitle }}</h4>
+                <h1 class="title is-family-sans-serif is-size-1">{{ data.title|_ }}</h2>
+                <h3 class="subtitle is-family-secondary is-size-3">{{ data.subtitle|raw|_ }}</h4>
             </div>
         </div>
         </div>
@@ -17,12 +17,12 @@
     </div>
 
     <main class="hero-body">
-    
+
         <div class="container">
 
                 {{ data.main|raw }}
         </div>
-        
+
     </main>
 
     <div class="hero-foot">
