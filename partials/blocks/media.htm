@@ -1,0 +1,28 @@
+;;
+==
+{##}
+<article class="media tile">
+    <div class="media-left tile is-vcentered has-text-right">
+        <figure
+                id="icon"
+                class="lottie"
+                data-path="https://assets5.lottiefiles.com/private_files/lf30_k30vedco.json">
+        </figure>
+        TODO: partial player with lottie/audio support
+    </div>
+    <div class="media-content tile is-vcentered is-7">
+            <div class="notification is-black">
+                <p>
+                    <h3 class="title">{{ data.title|_ }}</h3>
+                    <h4 class="subtitle">{{ data.description|_ }}</h4>
+                    <br>
+                </p>
+            </div>
+    </div>
+    <div class="media-right">
+        {% if data.menu %}
+            TODO: media.menu
+        {% endif %}
+        <button class="delete"></button>
+    </div>
+</article>
