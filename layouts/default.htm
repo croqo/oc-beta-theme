@@ -7,10 +7,9 @@ default = 1
 ==
 {##}
 {repeater name="sections" tab="full-height sequence" prompt="Add a full-height page" size="small"}
-    {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
-    {variable name="slug" type="text" label="Sequence unique ID" placeholder="Page id" preset="title" span="right"}{/variable}
-    {variable name="subtitle" label="Page top subtitle" span="left" type="text" size="small"}{/variable}
-    {variable name="autoscroll" label="Auto scroll" span="right" type="dropdown" options="off:No|on:Yes" }{/variable}
+    {variable name="title" type="text" label="Page title" span="left"}{/variable}
+    {variable name="slug" type="text" label="Sequence unique ID" placeholder="Keep it empty if you have no idea" preset="title" span="right"}{/variable}
+    {variable name="subtitle" label="Page subtitle" type="richeditor" size="small"}{/variable}
     {variable name="content" placeholder="This is the input for your really great post" type="richeditor"}{/variable}
     {variable name="foot" type="switch" label="Finalize with footer"}{/variable}
 {/repeater}
