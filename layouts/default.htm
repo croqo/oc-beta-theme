@@ -1,33 +1,104 @@
-;;
-[staticPage]
-useContent = 0
-default = 1
+description = "Default layout"
 
-[viewBag]
+[cart]
+showDiscountApplier = 1
+discountCodeLimit = 0
+showTaxes = 1
+showShipping = 1
+showProceedToCheckoutButton = 0
+
+[mallDependencies]
+
+[session]
+security = "all"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[currencyPicker]
+
+[localePicker]
+forceUrl = 1
 ==
 {##}
-{repeater name="sections" tab="full-height sequence" prompt="Add a full-height page" size="small"}
-    {variable name="title" type="text" label="Page top title" placeholder="Page title" span="left"}{/variable}
-    {variable name="slug" type="text" label="Sequence unique ID" placeholder="Page id" preset="title" span="right"}{/variable}
-    {variable name="subtitle" label="Page top subtitle" span="full" type="text" size="small"}{/variable}
-    {variable name="content" placeholder="This is the input for your really great post" type="richeditor"}{/variable}
-    {variable name="foot" type="switch" label="Finalize with footer"}{/variable}
-{/repeater}
+<!doctype html>
+<html lang="{{ activeLocale }}" class="is-fullheight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-{% partial 'html/head' this = this %}
-
-<div id="fullpage">
-    {% partial 'components/navbar' data = this.theme %}
-
-    {% if sections %}
-        {% for section in sections %}
-            {% partial 'blocks/section' data = section %}
-        {% endfor %}
+    {% if this.page.meta_description %}
+    <meta name="description" content="{{ this.page.meta_description }}">
     {% endif %}
-</div>
 
-    {% scripts %}
-    
-</body> 
+    {% if this.theme.app_icon %}
+    <link rel="icon" href="{{ this.theme.app_icon|media }}">
+    {% endif %}
 
+    <title>{{ this.page.title }} // {{ this.theme.app_name }}</title>
+    <script prefetch src="{{ ['@jquery'] | theme }}"></script>
+
+    {% if this.theme.google_tag %}
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ this.theme.google_tag }}');</script>
+        <!-- End Google Tag Manager -->
+    {% endif %}
+
+    {% styles %}
+    <link rel="stylesheet" href="{{ 'assets/build/main.css' | theme }}">
+
+    {% put scripts %}
+        <script defer src="{{ 'assets/build/main.js' | theme }}"></script>
+    {% endput %}
+
+    {% component 'mallDependencies' %}
+</head>
+<body 
+    {# class="has-navbar-fixed-top" #}
+
+    {# style=
+    "   background: url({{ this.theme.app_wallpaper|media }}) 50% 42% no-repeat;
+        background-size: cover
+    " #}
+>
+{% if this.theme.google_tag %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ this.theme.google_tag }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+{% endif %}
+
+    <div class="hero is-danger is-fullheight">
+        <header class="hero-head block">
+            {% partial 'components/navbar' %}
+        </header>
+
+        <div class="hero-body">
+            {% page %}
+        </div>
+        
+        {# <footer class="hero-foot"></footer> #}
+    </div>
+{##}
+{% framework extras %}
+{% scripts %}
+
+{##}
+{% flash %}
+    <script>
+        $(function() {
+            $.oc.flashMsg({type: '{{ type }}', text: '{{ message }}'})
+        })
+    </script>
+{% endflash %}
+
+
+</body>
 </html>

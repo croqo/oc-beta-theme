@@ -1,56 +1,16 @@
-name: Bulma
-description: "Bulma: the modern CSS framework that just works. \r\nhttps://bulma.io"
-author: Croqo
-homepage: 'https://croc.work'
-code: Croqo.Bulma
+name: Beta
+description: 'Based on: https://bulma.io'
+author: 'Eugene Croquette'
+homepage: ''
+authorCode: Croqo
+code: Beta
+parent: ''
+database: '0'
+form: config/fields.yaml
 require:
-    - RainLab.Translate
-    - RainLab.Pages
-    - RainLab.User
-    - Ompmega.MixHelper
-    - Janvince.Smallextensions
-form:
-    tabs:
-        fields:
-            title:
-                label: Your website short name
-                default: Demo website
-                translatable: true
-                tab: Brand        
-            subtitle:
-                label: Now try to describe your business in one sentence
-                default: OctoberCMS theme (under development)
-                translatable: true  
-                tab: Brand         
-            logo:
-                label: Full-size logo
-                type: mediafinder
-                mode: image
-                span: left
-                tab: Brand         
-            favicon:
-                label: Favicon
-                type: mediafinder
-                mode: image
-                span: right
-                size: tiny
-                tab: Brand         
-            contact_address:
-                label: The address, where visitors can find your office
-                translatable: true 
-                tab: Contacts
-            contact_phone:
-                label: Contact phone number
-                tab: Contacts
-            contact_email:
-                label: Official your@company.email
-                tab: Contacts
-            contact_telegram:
-                label: Official telegram @account   
-                tab: Contacts
-            google_tag:
-                label: Google Tag Manager ID
-                tab: Google
-            google_meta:
-                label: Google site verivication (key only)
-                tab: Google
+    - Rainlab.Translate
+    - Rainlab.Pages
+    - Rainlab.User
+    - Rainlab.Location
+    - OFFLINE.SiteSearch
+    - OFFLINE.Mall

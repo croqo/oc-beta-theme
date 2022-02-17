@@ -1,0 +1,46 @@
+{##}
+{{ form_ajax('onSignin') }}
+
+    <div class="field">
+        <label class="label" for="userSigninLogin">{{ loginAttributeLabel }}</label>
+        <div class="control">
+            <input
+                name="login"
+                type="email"
+                class="input"
+                id="userSigninLogin"
+                placeholder="Enter your {{ loginAttributeLabel|lower }}"
+            />
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="userSigninPassword">Password</label>
+        <div class="control">
+            <input
+                name="password"
+                type="password"
+                class="input"
+                id="userSigninPassword"
+                placeholder="Enter your password"
+            />
+        </div>
+    </div>
+
+    {% if rememberLoginMode == 'ask' %}
+    <div class="field">
+        <label class="checkbox">
+            <input name="remember" type="checkbox" value="1">
+            Stay logged in
+        </label>
+    </div>
+    {% endif %}
+
+    <div class="block"></div>
+    <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+            <button type="submit" class="button is-primary">Sign in</button>
+        </div>
+    </div>
+
+{{ form_close() }}

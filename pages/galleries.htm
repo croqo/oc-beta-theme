@@ -1,0 +1,18 @@
+title = "Album"
+layout = "default"
+url = "/galleries/:slug"
+
+[galleries]
+categorySlug = "{{ :category }}"
+tagSlug = "{{ :tag }}"
+activeOnly = 1
+allowLimit = "false"
+limit = 10
+detailPageSlug = "gallery"
+detailPageParam = "{{ :slug }}"
+orderBy = "date"
+orderByDirection = "DESC"
+==
+{##}
+
+{% component 'galleries' %}

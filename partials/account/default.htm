@@ -1,0 +1,32 @@
+{##}
+<div class="container">
+    {% if not user %}
+
+        <div class="columns">
+
+            <div class="column">
+                <h3 class="title">Sign in</h3>
+                <div class="notification">
+                    {% partial __SELF__ ~ '::signin' %}
+                </div>
+            </div>
+
+            <div class="column">
+                <h3 class="title">Register</h3>
+                <div class="notification">
+                    {% partial __SELF__ ~ '::register' %}
+                </div>
+            </div>
+
+        </div>
+
+    {% else %}
+
+        {% partial __SELF__ ~ '::activation_check' %}
+
+        {% partial __SELF__ ~ '::update' %}
+
+        {% partial __SELF__ ~ '::deactivate_link' %}
+
+    {% endif %}
+</div>

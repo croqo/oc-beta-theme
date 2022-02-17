@@ -1,0 +1,27 @@
+@import "bulma/sass/utilities/mixins"
+@import "./sass/colors"
+@import "./sass/acrylic"
+        
+@import "bulma/bulma"
+
+.navbar
+    background: rgba($navbar-background-color, 0.8) !important
+.card
+    background-color: none
+.hero
+    @each $name, $pair in $colors
+        $color: nth($pair, 1)
+        $color-invert: nth($pair, 2)
+        &.is-#{$name}
+            &.acrylic
+                header,
+                footer,
+                .navbar,
+                .navbar.is-fixed-top,
+                .navbar.is-fixed-bottom
+                    @include acrylic($color) 
+
+                hr
+                    background: rgba($color-invert, 0.11)
+                .box
+                    @include acrylic(rgba($color-invert, 0.84)) 

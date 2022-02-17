@@ -1,0 +1,68 @@
+{##}
+{% if canRegister %}
+    {{ form_ajax('onRegister') }}
+
+        <div class="field">
+            <label class="label" for="registerName">Full Name</label>
+            <div class="control">
+            <input
+                name="name"
+                type="text"
+                class="input"
+                id="registerName"
+                placeholder="Enter your full name"
+            />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="registerEmail">Email</label>
+            <div class="control">
+            <input
+                name="email"
+                type="email"
+                class="input"
+                id="registerEmail"
+                placeholder="Enter your email"
+            />
+            </div>
+        </div>
+
+        {% if loginAttribute == "username" %}
+            <div class="field">
+                <label class="label" for="registerUsername">Username</label>
+                <div class="control">
+                <input
+                    name="username"
+                    type="text"
+                    class="input"
+                    id="registerUsername"
+                    placeholder="Enter your username"
+                />
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="field">
+            <label class="label" for="registerPassword">Password</label>
+            <div class="control">
+            <input
+                name="password"
+                type="password"
+                class="input"
+                id="registerPassword"
+                placeholder="Choose a password"
+            />
+            </div>
+        </div>
+        <div class="block"></div>
+        <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+                <button type="submit" class="button is-primary">Register</button>
+            </div>
+        </div>
+
+    {{ form_close() }}
+{% else %}
+    <!-- Registration is disabled. -->
+{% endif %}

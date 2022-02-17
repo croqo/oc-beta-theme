@@ -1,0 +1,105 @@
+tabs:
+    stretch: true
+    defaultTab: App
+    lazy:
+        - Business
+        - Metrics
+    icons:
+        App: icon-barcode
+        Business: icon-building
+        Metrics: icon-line-chart
+    fields:
+
+        app_name:
+            label: Title (name)
+            default: Beta App
+            translatable: true
+            span: left
+            tab: App
+
+        app_icon:
+            label: Favicon (high-contrast application icon)
+            type: mediafinder
+            mode: image
+            span: right
+            size: tiny
+            tab: App
+
+        app_desc:
+            label: Briefly describe your project mission
+            default: Another try to make the world a better place
+            translatable: true
+            span: left
+            tab: App
+
+        app_wallpaper:
+            label: Full-screen wallpaper
+            type: mediafinder
+            mode: image
+            span: left
+            size: large
+            tab: App
+
+        app_navbar:
+            label: 'Slim (~ 60px height) navbar logo image'
+            type: mediafinder
+            mode: image
+            translatable: true
+            span: right
+            size: large
+            tab: App
+
+        link_address:
+            tab: Business
+            label: 🏢 Address
+            span: left
+            placeholder: 'Country / City ...'
+            translatable: true
+
+        link_map:
+            tab: Business
+            label: 🗺️ Map
+            span: right
+            placeholder: 'https://google.com/maps/...'
+
+        link_phone:
+            tab: Business
+            label: ☎️ Phone
+            span: left
+            placeholder: '+xxx (xx) xxx-xx-xx'
+
+        link_email:
+            tab: Business
+            label: 📮 E-mail
+            span: right
+            placeholder: 'username@example.com'
+            type: email
+
+        link_facebook:
+            tab: Business
+            label: 🔵 Facebook
+            span: left
+            placeholder: 'https://www.facebook.com/username'
+
+        link_twitter:
+            tab: Business
+            label: 🔵 Twitter
+            span: right
+            placeholder: 'https://twitter.com/username'
+
+        link_telegram:
+            tab: Business
+            label: 🔵 Telegram
+            span: left
+            placeholder: 'https://t.me/username'
+
+        link_linkedin:
+            tab: Business
+            label: 🔵 Linked-in
+            span: right
+            placeholder: 'https://www.linkedin.com/in/username'
+
+        google_tag:
+            label: '[ tagmanager.google.com ]'
+            placeholder: 'Tag Manager ID'
+            tab: Metrics

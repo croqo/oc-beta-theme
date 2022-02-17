@@ -1,73 +1,64 @@
+
 const
-    path = require('path'),
-    home = require('os').homedir(),
-    webpack = require('webpack'),
-    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
-    TerserWebpackPlugin = require('terser-webpack-plugin'),
-    FileManagerPlugin = require('filemanager-webpack-plugin'),
-    svgToMiniDataURI = require('mini-svg-data-uri')
+    webpack = require("webpack"),
+    path = require("path"),
+    MiniCssExtractPlugin = require("mini-css-extract-plugin")
 ;
 module.exports = {
-    // mode: 'development',
-    mode: 'production',
-    resolve: {
-        modules: [
-            path.resolve(home, 'node_modules')
-        ],
+    devtool: false,
+    mode: "production",
+    entry: {
+        "main": [
+            "./package/index.js",
+            "./package/index.sass"
+        ]
     },
-    context: path.resolve(__dirname, '_source'),
-    entry: ()=>'./',
     output: {
-        path: path.resolve(__dirname, 'assets'),
-        clean: true
+        clean: true,
+        path: path.resolve(__dirname, "assets", "build")
     },
-    externals: {
-        jquery: ['$', 'jQuery']
+    resolve: {
+        extensions: [
+            ".js",
+            ".json",
+            ".sass",
+            ".scss",
+            ".css",
+        ],
     },
     module: {
         rules: [
             {
-                test: /\.(sa|sc|c)ss$/,
+                test: /\.s[ac]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader, 
-                    'css-loader', 'sass-loader'
-                ]
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
-            {
-                test: /\.svg/,
-                type: 'asset/inline',
-               generator: {
-                 dataUrl: content => {
-                   content = content.toString();
-                   return svgToMiniDataURI(content);
-                 }
-               }
-            }
-        ]
+        ],
     },
     plugins: [
-        new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin(),
-        new FileManagerPlugin({
-            events: {
-                onEnd: {
-                    copy: [
-                        { source: './export', destination: '../assets' }
-                    ]
-                }
-            }
+        new webpack.ProgressPlugin({
+            activeModules: false,
+            entries: true,
+            profile: true,
+            dependencies: true,
+            percentBy: "entries"
         })
     ],
     optimization: {
-        minimizer: [
-          `...`,
-          new TerserWebpackPlugin(),
-          new CssMinimizerPlugin()
-        ],
-    },
-    stats: {
-        children: true,
-        builtAt: true
+        minimize: true
     }
 }

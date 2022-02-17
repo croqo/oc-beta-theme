@@ -1,0 +1,11 @@
+title = "Album"
+layout = "default"
+url = "/gallery/:slug?"
+
+[galleryDetail]
+gallerySlug = "{{ :slug }}"
+categorySlug = "{{ :category }}"
+activeOnly = 1
+==
+{##}
+{% component 'galleryDetail' %}

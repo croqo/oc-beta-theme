@@ -1,8 +1,8 @@
-;;
-[staticMenu]
-code = "navbar"
+[staticMenu shortcuts]
+code = "shortcuts"
 
-[viewBag]
+[staticMenu navbar]
+code = "navbar"
 ==
 {##}
 
@@ -10,35 +10,58 @@ code = "navbar"
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ '/'|app }}">
-                <h1 class="is-family-monospace is-uppercase is-size-3">{{ data.title }}</h1>
-                {# <object class="is-overflow" data="{{ data.logo|media }}" /></object> #}
+                <figure class="image">
+                    <img
+                        src=
+                            {% if this.theme.app_navbar %}
+                                {{ this.theme.app_navbar|media }}
+                            {% else %}
+                                {{ "assets/images/svg/navbar-logo.svg"|theme }}
+                            {% endif %}
+                        alt={{ this.theme.app_name }}
+                    />
+                </figure>
             </a>
-            <a role="button" 
-                class="navbar-burger" 
-                aria-label="menu" 
-                aria-expanded="false" 
-                data-target="navMenu" 
-                onclick="$('.navbar-menu').toggleClass('is-active')">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+            <a role="button"
+               class="navbar-burger"
+               aria-label="menu"
+               aria-expanded="false"
+               data-target="navMenu"
+               onclick="document.querySelector('.navbar-menu').classList.toggle('is-active')">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </a>
         </div>
-        
-        <div id="navMenu" class="navbar-menu">
+
+        <div id="navMenu" class="navbar-menu is-cemtered is-vcentered">
             <div class="navbar-start">
-                {% for item in staticMenu.menuItems() %}
-                    <a 
-                    class="navbar-item is-family-secondary is-uppercase is-size-5 {% if item.isActive %} is-active{% endif %}" 
+                {% for item in navbar.menuItems() %}
+                <a
+                    class="navbar-item is-family-secondary is-uppercase is-size-6 {% if item.isActive %}is-active{% endif %}"
                     href="{{ item.url }}">
-                        {{ item.title }}
-                    </a>
+                    {{ item.title }}
+                </a>
+                {% endfor %}
+            </div>
+            <div class="navbar-end">
+                <p class="navbar-item">
+                    {% if user %}
+                        Hi, {{ user.name }}
+                    {% else %}
+                        Log in
+                    {% endif %}
+                </p>
+                {% for item in shortcuts.menuItems() %}
+                <a
+                    class="navbar-item is-family-secondary is-uppercase is-size-6 {% if item.isActive %} is-active{% endif %}"
+                    href="{{ item.url }}">
+                    {{ item.title }}
+                </a>
                 {% endfor %}
 
             </div>
-
-            <div class="navbar-end">
-            </div>
         </div>
+
     </div>
 </nav>

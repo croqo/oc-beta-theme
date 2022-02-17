@@ -1,0 +1,20 @@
+
+// @import "compass/css3"
+
+// usage:
+// @include Noise ($NoiseWidth, $NoiseHeight, $NoiseBackground, $NoiseColor, $NoiseDensity, $NoiseOpacity)
+
+
+// @import url(https://fonts.googleapis.com/css?family=Oswald)
+// @import url(https://fonts.googleapis.com/css?family=Quattrocento)
+
+//   NOTE: Colors must be input without #, but they must be in HEX Value
+@mixin Noise ($NoiseWidth: 100, $NoiseHeight: 100, $NoiseBackground: f1f1f1, $NoiseColor: 111111, $NoiseDensity: 51, $NoiseOpacity: 67 ) 
+  background: url("http://api.thumbr.it/whitenoise-#{$NoiseWidth}x#{$NoiseHeight}.png?background=#{$NoiseBackground}ff&noise=#{$NoiseColor}&density=#{$NoiseDensity}&opacity=#{$NoiseOpacity}")
+
+
+
+.noise 
+  width: 500px
+  height: 500px
+  @include Noise ()

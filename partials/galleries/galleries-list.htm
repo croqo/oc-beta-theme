@@ -1,0 +1,35 @@
+==
+{##}
+    <ul>
+
+        {% for record in records %}
+            <a class="card {{ cssClass }}" href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
+                <li>
+                    <figure class="card-image">
+                        {% if record.preview_image %}
+                            <img class="image" alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
+                        {% endif %}
+
+                        {% if record.preview_image_media %}
+                            <img class="image" alt="{{ record.name }}" src="{{ record.preview_image_media|media }}" />
+                        {% endif %}
+                    </figure>
+
+                    <figure class="card-content">
+                        <a href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
+                            {{ record.name }} ({{ record.images|length}} images)
+                        </a>
+
+                    </figure>
+                    {% if record.children|length %}
+
+                        {% partial "@galleries-list" records = record.children %}
+
+                    {% endif %}
+                </li>
+            </a>
+        {% endfor %}
+
+    </ul>
+
+
