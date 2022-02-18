@@ -1,22 +1,11 @@
 description = "Default layout"
 
-[cart]
-showDiscountApplier = 1
-discountCodeLimit = 0
-showTaxes = 1
-showShipping = 1
-showProceedToCheckoutButton = 0
-
-[mallDependencies]
-
 [session]
 security = "all"
 
 [staticPage]
 useContent = 1
 default = 0
-
-[currencyPicker]
 
 [localePicker]
 forceUrl = 1
@@ -58,7 +47,6 @@ forceUrl = 1
         <script defer src="{{ 'assets/build/main.js' | theme }}"></script>
     {% endput %}
 
-    {% component 'mallDependencies' %}
 </head>
 <body 
     {# class="has-navbar-fixed-top" #}
@@ -75,14 +63,14 @@ forceUrl = 1
     <!-- End Google Tag Manager (noscript) -->
 {% endif %}
 
-    <div class="hero is-danger is-fullheight">
+    <div class="hero is-fullheight">
         <header class="hero-head block">
             {% partial 'components/navbar' %}
         </header>
 
-        <div class="hero-body">
+        <main class="hero-body tile is-vertical is-ancestor">
             {% page %}
-        </div>
+        </main>
         
         {# <footer class="hero-foot"></footer> #}
     </div>
