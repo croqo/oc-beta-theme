@@ -1,4 +1,4 @@
-title = "Album"
+title = "Albums"
 layout = "default"
 url = "/galleries/:slug"
 
@@ -12,7 +12,15 @@ detailPageSlug = "gallery"
 detailPageParam = "{{ :slug }}"
 orderBy = "date"
 orderByDirection = "DESC"
+
+[galleryCategories]
+categorySlug = "{{ :category }}"
+activeOnly = 1
+rootOnly = 1
 ==
 {##}
 
+{% component 'galleryCategories' %}
+
 {% component 'galleries' %}
+

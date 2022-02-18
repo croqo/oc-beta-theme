@@ -1,10 +1,11 @@
 ==
 {##}
-    <ul>
+    <ul class="columns is-multiline">
 
         {% for record in records %}
-            <a class="card {{ cssClass }}" href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
-                <li>
+            <a class="column" href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
+                <li class="card {{ cssClass }}">
+
                     <figure class="card-image">
                         {% if record.preview_image %}
                             <img class="image" alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
@@ -21,6 +22,7 @@
                         </a>
 
                     </figure>
+
                     {% if record.children|length %}
 
                         {% partial "@galleries-list" records = record.children %}
