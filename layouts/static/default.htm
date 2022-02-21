@@ -1,16 +1,17 @@
-description = "Default layout"
+description = "default layout"
 
 [session]
 security = "all"
 
 [staticPage]
 useContent = 1
-default = 0
+default = 1
 
 [localePicker]
 forceUrl = 1
 ==
 {##}
+
 <!doctype html>
 <html lang="{{ activeLocale }}" class="is-fullheight">
 <head>
@@ -63,7 +64,7 @@ forceUrl = 1
     <!-- End Google Tag Manager (noscript) -->
 {% endif %}
 
-    <div class="hero is-fullheight">
+    <div class="hero is-danger is-fullheight">
         <header class="hero-head block">
             {% partial 'components/navbar' %}
         </header>

@@ -1,0 +1,36 @@
+{##}
+<div class="hero-buttons">
+    {% for category in records %}
+
+        <a 
+            href="{{ category.slug }}" 
+            class="box button {{ cssClass }}{% if category.slug == __SELF__.property('categorySlug') %}is-active{% endif %}">
+            <h3 class="title is-size-5">
+
+                {{ category.name }}
+
+            </h3>
+
+            <div class="subtitle">
+
+                {% if category.records|length %}
+                    
+                    <span class="badge">{{ category.records|length }}</span>
+
+                {% endif %}
+
+                {% if category.children|length %}
+
+                    {% partial "@categories-list" records = category.children %}
+
+                {% endif %}
+
+            </div>
+
+        </a>
+    
+    {% endfor %}
+
+</div>
+
+

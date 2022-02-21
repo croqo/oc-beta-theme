@@ -1,15 +1,28 @@
-description = "Default layout"
+description = "sections repeater"
 
 [session]
 security = "all"
 
 [staticPage]
-useContent = 1
+useContent = 0
 default = 0
 
 [localePicker]
 forceUrl = 1
 ==
+{##}
+
+{# Dynamic Syntax
+ https://docs.octobercms.com/2.x/services/parser.html#editor-mode #}
+
+{repeater name="sections" prompt="Add another section" tab="Sections"}
+    {text name="websiteName" label="Website Name"}
+        Our wonderful website
+    {/text}
+    {textarea name="websiteDescription" label="Website Description"}
+        This is our vision for things to come
+    {/textarea}
+{/repeater}
 {##}
 <!doctype html>
 <html lang="{{ activeLocale }}" class="is-fullheight">
