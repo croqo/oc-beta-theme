@@ -1,12 +1,11 @@
-title = "Album"
+url = "/show/:slug?"
 layout = "default"
-url = "/gallery/:slug?"
+title = "Album"
 
 [galleryDetail]
 gallerySlug = "{{ :slug }}"
 categorySlug = "{{ :category }}"
 activeOnly = 1
-
 ==
 {##}
 {% component 'galleryDetail' %}
