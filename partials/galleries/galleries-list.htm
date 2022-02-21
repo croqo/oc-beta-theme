@@ -1,37 +1,45 @@
 ==
 {##}
-    <ul class="columns is-multiline">
+<div class="columns is-centered is-multiline">
+    {% for record in records %}
+        <div class="column is-half">
+            <a class="media card" href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
+                
+                {% if record.preview_image or record.preview_image_media %}
+                    <div class="media-left">
+                        <figure class="card-image">
+                            <img class="image is-96x96" alt="{{ record.name }}" 
+                                {% if record.preview_image %}
+                                    src="{{ record.preview_image.getPath }}" 
+                                {% endif %}
+                                {% if record.preview_image_media %}
+                                src="{{ record.preview_image_media|media }}"
+                                {% endif %}
+                            />
+                        </figure>
+                    </div>
+                {% endif %}
 
-        {% for record in records %}
-            <a class="column" href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
-                <li class="card {{ cssClass }}">
+                {% if record.images|length %}
+                    <div class="media-content">
+                        <div class="card-content">
+                            <span>{{ record.images|length }}✖️
+                            <strong class="title">{{ record.name }}</strong></span>
+                        </div>
+                    </div>
+                {% endif %}
 
-                    <figure class="card-image">
-                        {% if record.preview_image %}
-                            <img class="image" alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
-                        {% endif %}
-
-                        {% if record.preview_image_media %}
-                            <img class="image" alt="{{ record.name }}" src="{{ record.preview_image_media|media }}" />
-                        {% endif %}
-                    </figure>
-
-                    <figure class="card-content">
-                        <a href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
-                            {{ record.name }} ({{ record.images|length}} images)
-                        </a>
-
-                    </figure>
-
+                <div class="media-right">
                     {% if record.children|length %}
 
                         {% partial "@galleries-list" records = record.children %}
 
                     {% endif %}
-                </li>
+                    <button class="delete is-hidden"></button>
+                </div>
+
             </a>
-        {% endfor %}
-
-    </ul>
-
+        </div>
+    {% endfor %}
+</div>
 

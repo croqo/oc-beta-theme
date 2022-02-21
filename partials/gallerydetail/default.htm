@@ -1,11 +1,13 @@
-==
 {##}
-<article class="container">
-  <div class="box">
-    <h1 class="title">{{ gallery.name }}</h1>
-    <p class="subtitle">{{ gallery.description }}</p>
+<article class="container is-fluid">
+  <div class="notification">
+    <div class="block">
+      <h1 class="title">{{ gallery.name }}</h1>
+      <p class="subtitle">{{ gallery.description }}</p>
+    </div>
   </div>
-  {% partial "@images-list" images = gallery.images %}
+  <div class="block">
+    {% partial "@images-list" images = gallery.images %}
+  </div>
 </article>
-
 
