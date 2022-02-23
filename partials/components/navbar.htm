@@ -4,6 +4,13 @@ code = "shortcuts"
 [staticMenu navbar]
 code = "navbar"
 ==
+<?
+function onStart()
+{
+    $this['backendUrl'] = System::checkDebugMode() ? Backend::url('/') : null;
+}
+?>
+==
 {##}
 
 <nav class="navbar is-fixed-top">
@@ -49,7 +56,10 @@ code = "navbar"
                     {% if user %}
                         Hi, {{ user.name }}
                     {% else %}
-                        Log in
+                        {% if backendUrl %}
+                                <a class="button is-warning" href="{{ backendUrl }}" target="backend">Get in</a>
+                        {% endif %}
+                        
                     {% endif %}
                 </p>
                 {% for item in shortcuts.menuItems() %}
