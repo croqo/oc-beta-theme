@@ -1,4 +1,4 @@
-description = "Default layout"
+description = "Hero layout (default)"
 
 [session]
 security = "all"
@@ -27,7 +27,7 @@ forceUrl = 1
     <link rel="icon" href="{{ this.theme.app_icon|media }}">
     {% endif %}
 
-    <title>{{ this.page.title }} // {{ this.theme.app_name }}</title>
+    <title>{{ this.page.title }} ⨠ {{ this.theme.app_name }}</title>
     <script prefetch src="{{ ['@jquery'] | theme }}"></script>
 
     {% if this.theme.google_tag %}
@@ -68,10 +68,14 @@ forceUrl = 1
             {% partial 'components/navbar' %}
         </header>
 
-        <main class="hero-body tile is-vertical is-ancestor">
+        <main class="hero-body">
             <hr/>
-            <div class="tile">
-                {% page %}
+            <div class="container">
+                <div class="columns is-centered is-vcentered">
+                    <div class="column is-narrow box">
+                        {% page %}
+                    </div>
+                </div>
             </div>
         </main>
         
