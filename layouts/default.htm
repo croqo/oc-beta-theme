@@ -63,16 +63,19 @@ forceUrl = 1
     <!-- End Google Tag Manager (noscript) -->
 {% endif %}
 
-    <div class="hero has-background-primary-light is-fullheight">
-        <header class="hero-head block">
+    <div class="hero is-warning is-fullheight">
+        <header class="hero-head">
             {% partial 'components/navbar' %}
         </header>
 
         <main class="hero-body tile is-vertical is-ancestor">
-            {% page %}
+            <hr/>
+            <div class="tile">
+                {% page %}
+            </div>
         </main>
         
-        {# <footer class="hero-foot"></footer> #}
+        <footer class="hero-foot"></footer>
     </div>
 {##}
 {% framework extras %}
