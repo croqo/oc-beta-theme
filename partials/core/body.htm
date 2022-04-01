@@ -1,0 +1,31 @@
+description = "Site body partial"
+==
+{##}
+<body 
+    {# class="has-navbar-fixed-top" #}
+
+    {# style=
+    "   background: url({{ this.theme.app_wallpaper|media }}) 50% 42% no-repeat;
+        background-size: cover
+    " #}
+>
+{% placeholder prepend %}
+
+{% partial 'layouts/hero' %}
+
+{% placeholder append %}
+{##}
+{% framework extras %}
+{% scripts %}
+
+{##}
+{% flash %}
+    <script>
+        $(function() {
+            $.oc.flashMsg({type: '{{ type }}', text: '{{ message }}'})
+        })
+    </script>
+{% endflash %}
+
+
+</body>

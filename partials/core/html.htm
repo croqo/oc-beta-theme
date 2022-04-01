@@ -1,0 +1,16 @@
+description = "Is mothership partial"
+
+[localePicker]
+forceUrl = 1
+==
+{##}
+<!doctype html>
+<html 
+{% if activeLocale %} 
+    lang="{{ activeLocale }}"
+{% endif %} 
+    class="is-fullheight"
+>
+{% partial 'core/head' %}
+{% partial 'core/body' %}
+</html>
