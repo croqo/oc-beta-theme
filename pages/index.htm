@@ -2,7 +2,37 @@ url = "/"
 layout = "default"
 title = "Start"
 is_hidden = 0
+
+[lottie]
+url = "https://assets1.lottiefiles.com/packages/lf20_03cqwtmx.json"
+look = "default"
 ==
 {##}
 
-Hello world 👋
+
+
+<div class="container">
+    <div class="columns is-centered is-vcentered">
+        <div class="column is-narrow">
+            <div class="box p-5">
+                <h1 class="title">Hello world 👋</h1>
+                
+            </div>
+        </div>
+        <div class="column is-5">
+        {% component 'lottie' %}
+
+            {# <figure class="image">
+                <img
+                    src=
+                        {% if this.theme.app_wallpaper %}
+                            {{ this.theme.app_wallpaper|media }}
+                        {% else %}
+                            {{ "assets/images/svg/home-banner.svg"|theme }}
+                        {% endif %}
+                    alt={{ this.theme.app_name }}
+                />
+            </figure> #}
+        </div>
+    </div>
+</div>
