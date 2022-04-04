@@ -1,19 +1,17 @@
 description = "Site body partial"
+
 ==
 {##}
 <body 
-    {# class="has-navbar-fixed-top" #}
-
     {# style=
     "   background: url({{ this.theme.app_wallpaper|media }}) 50% 42% no-repeat;
         background-size: cover
     " #}
 >
-{% placeholder prepend %}
+{% partial 'layouts/hero' %}
 
-{% page %}
 
-{% placeholder append %}
+
 {##}
 {% framework extras %}
 {% scripts %}

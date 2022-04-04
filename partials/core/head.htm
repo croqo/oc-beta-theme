@@ -35,13 +35,5 @@ description = "Site head partial"
         <script defer src="{{ 'assets/build/main.js' | theme }}"></script>
     {% endput %}
 
-    {% put prepend %}
-        {% partial 'components/navbar' %}    
-    {% endput %}
-    
-    {% put append %}
-        <footer class="footer"></footer>
-    {% endput %}
-
     {% placeholder head %}
 </head>

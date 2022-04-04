@@ -1,0 +1,23 @@
+description = "Hero partial"
+==
+{##}
+{% placeholder prepend %}
+
+    <div class="hero is-fullheight">
+
+        <header class="hero-head">
+            {% partial 'components/navbar' %}
+            {% placeholder header %}
+        </header>
+
+        <main class="hero-body">
+            {% page %}
+        </main>
+        
+        <footer class="hero-foot">
+            {% placeholder footer %}
+        </footer>
+
+    </div>
+
+{% placeholder append %}
