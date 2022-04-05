@@ -4,12 +4,10 @@ code = "shortcuts"
 [staticMenu navbar]
 code = "navbar"
 ==
-<?
 function onStart()
 {
     $this['backendUrl'] = System::checkDebugMode() ? Backend::url('/') : null;
 }
-?>
 ==
 {##}
 
@@ -23,7 +21,7 @@ function onStart()
                             {% if this.theme.app_navbar %}
                                 {{ this.theme.app_navbar|media }}
                             {% else %}
-                                {{ "assets/images/svg/navbar-logo.svg"|theme }}
+                                {{ "assets/images/default/navbar.svg"|theme }}
                             {% endif %}
                         alt={{ this.theme.app_name }}
                     />
