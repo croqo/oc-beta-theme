@@ -14,7 +14,7 @@ description = "Site head partial"
     {% if this.theme.app_icon %}
         {% set favicon = this.theme.app_icon|media %}
     {% else %}
-        {% set favicon = "assets/images/svg/favicon.svg"|theme %}
+        {% set favicon = "assets/images/default/favicon.svg"|theme %}
     {% endif %}
 
     <link rel="icon" href="{{ favicon }}">
