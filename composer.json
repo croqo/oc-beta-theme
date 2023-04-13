@@ -1,0 +1,22 @@
+{
+    "name": "croqo/motion-theme",
+    "type": "october-theme",
+    "description": "October CMS theme, based on Bulma CSS framework",
+    "keywords": ["october", "cms", "bulma", "theme"],
+    "authors": [
+        {
+            "name": "Eugene Croquette",
+            "email": "on@croqo.in",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~v2.2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
