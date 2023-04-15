@@ -1,0 +1,29 @@
+description = "fullpage layout"
+==
+<!DOCTYPE html>
+<html lang="{{ this.site.locale }}">
+    <head>
+        {% partial 'app/meta' %}
+    </head>
+    <body class="{{ 'page-'~this.page.id }}">
+        <div id="fullpage" class="hero is-fullheight">
+
+            <!-- Header -->
+            <header id="layout-header">
+                {% partial 'site/header' %}
+            </header>
+
+            <!-- Content -->
+            <section id="layout-content">
+                {% page %}
+            </section>
+
+            <!-- Footer -->
+            <footer id="layout-footer">
+                {% partial 'site/footer' %}
+            </footer>
+
+        </div>
+        {% scripts %}
+    </body>
+</html>
