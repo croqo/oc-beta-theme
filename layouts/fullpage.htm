@@ -6,23 +6,27 @@ description = "fullpage layout"
         {% partial 'app/meta' %}
     </head>
     <body class="{{ 'page-'~this.page.id }}">
-        <div id="fullpage" class="hero is-fullheight">
+        <div id="fullpage">
+            <div class="hero is-fullheight">
 
-            <!-- Header -->
-            <header id="layout-header">
-                {% partial 'site/header' %}
-            </header>
+                <!-- Header -->
+                <header id="layout-header">
+                TODO: fork header
+                    {% partial 'site/header' %}
+                </header>
 
-            <!-- Content -->
-            <section id="layout-content">
-                {% page %}
-            </section>
+                <!-- Content -->
+                <section id="layout-content">
+                    {% page %}
+                </section>
 
-            <!-- Footer -->
-            <footer id="layout-footer">
-                {% partial 'site/footer' %}
-            </footer>
+                <!-- Footer -->
+                <footer id="layout-footer">
+                TODO: fork footer
+                    {% partial 'site/footer' %}
+                </footer>
 
+            </div>
         </div>
         {% scripts %}
     </body>
