@@ -1,0 +1,20 @@
+
+<menu class="menu">
+    {% if label %}
+        <p class="menu-label">{{ label }}</p>
+    {% endif %}
+
+    {% if list %}
+        <ul class="menu-list">
+            {% for item in list %}
+                <li>
+                    <a href="{{ item.url }}"
+                    class="{{ item.isActive ? 'is-active' : '' }}">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</menu>
