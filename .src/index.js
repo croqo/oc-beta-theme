@@ -5,32 +5,41 @@ if (oc.useTurbo && oc.useTurbo()) {
     addEventListener('page:before-render', async (event) => {
         // event.preventDefault();
         // event.detail.resume();
+
     })
     addEventListener('page:loaded', async () => {
-        init()
+        // console.log('EVENT: page:loaded');
+        init();
     })
 } else {
     addEventListener('DOMContentLoaded', async () => {
-        init()
+        console.log('DOMContentLoaded, turbo feature not used')
     })
 }
+
 function init(){
     burgerInit();
     fullpageInit()
 }
 function burgerInit(){
+    const $menu = document.querySelector('#menu');
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
     $navbarBurgers.forEach( el => {
         el.addEventListener('click', () => {
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
             el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
+            $menu.classList.toggle('is-active');
         });
     });
 }
 function fullpageInit(){
     new fullpage('#fullpage', {
-        licenseKey: fullpageKey ?? ''
+        licenseKey: fullpageKey ?? '',
+        autoScrolling: true,
+        scrollBar: false,
+
+        sectionSelector: '.section',
+        slideSelector: '.slide',
+        fixedElements: '.is-fixed-top, .is-fixed-bottom',
+        recordHistory: false
     });
 }
