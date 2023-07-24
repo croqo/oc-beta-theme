@@ -1,0 +1,21 @@
+description = "Common meta tags"
+==
+{% put meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="title" content="{{ metaTitle }}">
+    {% if metaDescription is not empty %}
+        <meta name="description" content="{{ metaDescription }}">
+    {% endif %}
+
+    <meta name="author" content="{{ appName }}">
+    <meta name="generator" content="{{ appName }}">
+
+    {% if this.theme.brand_icon is not empty %}
+        <link rel="icon" href="{{ this.theme.brand_icon|media }}">
+    {% endif %}
+
+    <title>{{ metaTitle  ~ ' ≡ ' ~ appName }}</title>
+{% endput %}

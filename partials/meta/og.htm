@@ -1,0 +1,12 @@
+description = "Open Graph: Take Control of Your Snippets on Facebook"
+==
+{% put meta %}
+    <meta property="og:url" content="{{ this|page }}" />
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ metaDescription }}" />
+    <meta property="og:locale" content="{{ appLang }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ appName }}" />
+    <meta property="og:image" content="{{ metaImage }}"/>
+{% endput %}
+
