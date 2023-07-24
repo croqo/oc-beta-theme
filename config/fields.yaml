@@ -1,0 +1,12 @@
+tabs:
+    stretch: true
+    icons:
+        Brand: icon-star
+    fields:
+        brand_icon:
+            tab: Brand
+            label: Icon
+            span: auto
+            type: mediafinder
+            mode: image
+            maxItems: 1

@@ -1,0 +1,52 @@
+description = "Fullpage hero layout"
+
+[resources]
+js[] = "index.js"
+css[] = "index.css"
+==
+{% set appName = this.site.name %}
+{% set appLang = this.site.locale|default(this.site.hard_locale) %}
+{% set metaTitle = placeholder('title')|default(this.page.meta_title ?? this.page.title) %}
+{% set metaDescription = this.page.meta_description|default(this.page.description) %}
+{% set metaImage = placeholder('preview')|default('assets/images/default/preview.png'|theme) %}
+
+<!DOCTYPE html>
+<html
+    lang={{ appLang }}
+    >
+
+    <head>
+        {% partial 'meta/common' %}
+        {% partial 'meta/og' %}
+
+        {% meta %}
+
+        {% styles %}
+
+    </head>
+    <body class="hero is-fullheight">
+
+        <!-- Header -->
+        <header class="hero-head">
+            <!-- Navigation -->
+            {% partial "components/navbar" %}
+        </header>
+
+        <!-- Content Grid Section -->
+        <article class="hero-body">
+            <div class="container">
+                {% page %}
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <footer class="hero-foot">
+            {% partial "layouts/footer" %}
+        </footer>
+
+        <!-- Scripts -->
+        {% framework turbo %}
+        {% scripts %}
+    </body>
+
+</html>

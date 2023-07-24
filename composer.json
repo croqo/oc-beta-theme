@@ -1,0 +1,8 @@
+{
+    "name": "croqo/deal-theme",
+    "type": "october-theme",
+    "description": "Quick launch boilerplate theme for October CMS",
+    "require": {
+        "composer/installers": "~v2.0"
+    }
+}
