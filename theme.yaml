@@ -9,3 +9,5 @@ database: '0'
 authorUrl: null
 previewImage: assets/images/default/preview.png
 form: config/fields.yaml
+require:
+    - "Rainlab.Pages"

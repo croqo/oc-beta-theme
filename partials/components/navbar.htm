@@ -1,39 +1,38 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+[staticMenu menuStart]
+code = "navbar-start"
+
+[staticMenu menuEnd]
+code = "navbar-end"
+==
+<nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ ''|app }}">
-                {% if this.theme.brand_navbar is not empty %}
-                    <img src="{{ this.theme.brand_navbar|media }}" width="112" height="28">
+                {% if this.theme.brand.navbar is not empty %}
+                    <img src="{{ this.theme.brand.navbar|media }}" width="112" height="28">
                 {% else %}
-                    <span class="title">{{ this.theme.brand_title|default(this.site.name) }}</span>
+                    <h1 class="title">{{ appName }}</h1>
                 {% endif %}
             </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="Menu">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
 
-        <div id="Menu" class="navbar-menu">
+        <div id="menu" class="navbar-menu">
             <div class="navbar-start">
-                <a href="#" class="navbar-item">
-                    Home
-                </a>
+                {% if menuStart.menuItems %}
+                    {% partial "static/menu" menu = menuStart %}
+                {% endif %}
             </div>
 
             <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
-                </div>
+                {% if menuEnd.menuItems %}
+                    {% partial "static/menu" menu = menuEnd %}
+                {% endif %}
             </div>
         </div>
     </div>

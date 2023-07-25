@@ -3,6 +3,10 @@ description = "Fullpage hero layout"
 [resources]
 js[] = "index.js"
 css[] = "index.css"
+
+[staticPage]
+useContent = 1
+default = 1
 ==
 {% set appName = this.site.name %}
 {% set appLang = this.site.locale|default(this.site.hard_locale) %}
@@ -24,7 +28,7 @@ css[] = "index.css"
         {% styles %}
 
     </head>
-    <body class="hero is-fullheight">
+    <body class="hero is-fullheight {{ placeholder('theme')|default('') }}">
 
         <!-- Header -->
         <header class="hero-head">
