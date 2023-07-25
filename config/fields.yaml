@@ -3,9 +3,16 @@ tabs:
     icons:
         Brand: icon-star
     fields:
-        brand_icon:
+        brand[icon]:
             tab: Brand
             label: Icon
+            span: auto
+            type: mediafinder
+            mode: image
+            maxItems: 1
+        brand[navbar]:
+            tab: Brand
+            label: Navbar slim logo
             span: auto
             type: mediafinder
             mode: image
