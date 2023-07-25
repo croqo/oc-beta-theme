@@ -1,3 +1,15 @@
+description = "self-updatable ajax partial reference"
+
+==
+<?php
+function onSubmitContact()
+{
+    $this['submitted'] = true;
+}
+?>
+==
+{% if not submitted %}
+
 <form data-request="onSubmitContact" data-request-update="{ _self: true }" novalidate>
 
     <div class="field">
@@ -80,3 +92,11 @@
         </div>
     </div>
 </form>
+
+{% else %}
+
+<div class="notification">
+    Thanks for contacting us!
+</div>
+
+{% endif %}
