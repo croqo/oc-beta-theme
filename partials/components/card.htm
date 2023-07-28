@@ -46,4 +46,11 @@ description = "Bulma card component"
                 {{ body|raw }}
             </div>
         </div>
+        {% if card.footer is not empty %}
+            <footer class="card-footer">
+                {% for item in card.footer.menuItems %}
+                    <a href="{{ item.url }}" class="card-footer-item">{{ item.title }}</a>
+                {% endfor %}
+            </footer>
+        {% endif %}
     </div>
