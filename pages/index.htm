@@ -4,7 +4,12 @@ title = "Home"
 ==
 {% put theme %}is-light{% endput %}
 <div class="columns is-centered">
-    <div class="column">1️⃣</div>
+    <div class="column">
+        {% partial 'components/card' body %}
+            <p class="title">Thank you mate,</p>
+            <p class="subtitle">I ❤️ to see you @ my website</p>
+        {% endpartial %}
+
+    </div>
     <div class="column">2️⃣</div>
-    <div class="column">3️⃣</div>
 </div>

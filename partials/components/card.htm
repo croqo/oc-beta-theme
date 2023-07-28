@@ -1,0 +1,49 @@
+description = "Bulma card component"
+==
+    <div class="card">
+        {% if card.image is not empty %}
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="{{ card.image|default('https://bulma.io/images/placeholders/1280x960.png') }}" alt="{{ card.header.title }}">
+                </figure>
+            </div>
+        {% endif %}
+        {% if card.header is not empty %}
+            <div class="card-header">
+                <div class="card-header-icon">
+                    <figure class="image is-48x48">
+                        <img
+                            src="{{ card.header.icon|default('https://bulma.io/images/placeholders/96x96.png') }}"
+                            alt="{{ card.header.title }}"
+                        >
+                    </figure>
+                </div>
+                <div class="card-header-title title">{{ card.header.title }}</div>
+                <div class="card-header-title subtitle">{{ card.header.subtitle }}</div>
+            </div>
+        {% endif %}
+        <div class="card-content">
+
+            {% if card.user is not empty %}
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img
+                                src="{{ card.user.icon|default('https://bulma.io/images/placeholders/96x96.png') }}"
+                                alt="{{ card.user.name }}"
+                            >
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">{{ card.user.name|default('<%USERNAME%>') }}</p>
+                        <p class="subtitle is-6">{{ card.user.alias|default('@username') }}</p>
+                    </div>
+                </div>
+            {% endif %}
+
+
+            <div class="content">
+                {{ body|raw }}
+            </div>
+        </div>
+    </div>
