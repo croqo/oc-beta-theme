@@ -9,7 +9,7 @@ code = "navbar-end"
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ ''|app }}">
                 {% if this.theme.brand.navbar is not empty %}
-                    <img src="{{ this.theme.brand.navbar|media }}" width="112" height="28">
+                    <img src="{{ this.theme.brand.navbar|media }}" alt="{{ appName }}" width="112" height="28">
                 {% else %}
                     <h1 class="title">{{ appName }}</h1>
                 {% endif %}
@@ -25,13 +25,13 @@ code = "navbar-end"
         <div id="menu" class="navbar-menu">
             <div class="navbar-start">
                 {% if menuStart.menuItems %}
-                    {% partial "static/menu" menu = menuStart %}
+                    {% partial "components/tabs" tabs = menuStart %}
                 {% endif %}
             </div>
 
             <div class="navbar-end">
                 {% if menuEnd.menuItems %}
-                    {% partial "static/menu" menu = menuEnd %}
+                    {% partial "components/tabs" tabs = menuEnd %}
                 {% endif %}
             </div>
         </div>

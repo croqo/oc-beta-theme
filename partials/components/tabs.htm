@@ -1,0 +1,26 @@
+description = "Bulma tabs"
+==
+{% if tabs.menuItems is not empty %}
+    <div class="tabs is-medium">
+        <ul>
+            {% for tab in tabs.menuItems %}
+                <li class="{{ tab.isActive ? 'is-active' }}">
+                    {% if tab.url %}
+                        <a href="{{ tab.url }}"
+                            {{ tab.viewBag.isExternal ? 'target="_blank"' }}
+                        >{{ tab.title }}</a>
+                    {% else %}
+                        <span>{{ tab.title }}</span>
+                    {% endif %}
+                    {% if tab.menuItems %}
+                        <ul>{%
+                            partial "components/tabs"
+                            tabs = tab.items
+                        %}</ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
