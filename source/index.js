@@ -1,5 +1,16 @@
-// document.addEventListener('DOMContentLoaded', () => {
-document.addEventListener('page:loaded', () => {
+import fullpage from 'fullpage.js';
+import fullpageLicenseKey from './license.js';
+
+
+const sections = new fullpage('#fullpage', {
+    navigation: true,
+    licenseKey: fullpageLicenseKey,
+    sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'grey']
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('page:loaded', () => {
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

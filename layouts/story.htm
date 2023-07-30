@@ -1,0 +1,71 @@
+description = "Tell the story using smothy sliders (fullpage.js)"
+
+[resources]
+js[] = "index.js"
+css[] = "index.css"
+
+[staticPage]
+useContent = 0
+default = 0
+==
+{% set appName = this.site.name %}
+{% set appLang = this.site.locale|default(this.site.hard_locale) %}
+{% set metaTitle = placeholder('title')|default(this.page.meta_title ?? this.page.title) %}
+{% set metaDescription = this.page.meta_description|default(this.page.description) %}
+{% set metaImage = placeholder('preview')|default('assets/images/default/preview.png'|theme) %}
+
+<!DOCTYPE html>
+<html
+    lang={{ appLang }}
+    >
+
+    <head>
+        {% partial 'meta/common' %}
+        {% partial 'meta/og' %}
+
+        {% meta %}
+
+        {% styles %}
+
+    </head>
+    <body class="hero is-fullheight {{ placeholder('theme')|default('') }}">
+        <div id="fullpage">
+            <!-- Header -->
+            <header class="hero-head">
+                <!-- Navigation -->
+                {% partial "components/navbar" %}
+            </header>
+
+            <!-- Content Grid Section -->
+            <article class="hero-body">
+                <div class="container">
+
+                    {repeater name="content_sections" prompt="Add another content section"}
+                        <h2>
+                            {text name="title" label="Title"}Title{/text}
+                        </h2>
+                        <p>
+                            {richeditor
+                                name="content"
+                                label="Content"
+                                showMargins="true"
+                                toolbarButtons="bold|italic|underline|strikeThrough|fontSize|color|inlineStyle|paragraphStyle|paragraphStyle|align|||formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertPageLink|insertImage|insertVideo|insertAudio|insertFile|insertTable|clearFormatting|||html|fullscreen"
+                            }{/richeditor}
+                        </p>
+                    {/repeater}
+
+                </div>
+            </article>
+
+            <!-- Footer -->
+            <footer class="hero-foot">
+                {% partial "layouts/footer" %}
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        {% framework extra %}
+        {% scripts %}
+    </body>
+
+</html>
