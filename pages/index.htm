@@ -3,13 +3,13 @@ layout = "hero"
 title = "Home"
 ==
 {% put theme %}is-light{% endput %}
-<div class="columns is-centered">
-    <div class="column">
-        {% partial 'components/card' body %}
-            <p class="title">Thank you mate,</p>
-            <p class="subtitle">I ❤️ to see you @ my website</p>
-        {% endpartial %}
-
+    <div class="columns is-centered">
+        <div class="column is-narrow">
+            {% partial 'components/card' body %}
+                <p class="title is-4">✅ Achievment unlocked</p>
+                <p class="subtitle is-6">You have visited my website. Thank you</p>
+            {% endpartial %}
+        </div>
+        <div class="column"></div>
     </div>
-    <div class="column">2️⃣</div>
 </div>
