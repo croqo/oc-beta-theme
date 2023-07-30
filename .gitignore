@@ -5,4 +5,4 @@ meta
 node_modules
 yarn.lock
 .*
-source/license.js
+source/license.json
