@@ -1,12 +1,4 @@
-import fullpage from 'fullpage.js';
-import fullpageLicenseKey from './license.json';
-
-
-const sections = new fullpage('#fullpage', {
-    navigation: true,
-    licenseKey: fullpageLicenseKey.result``,
-    sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'grey']
-});
+import fullpage from './fullpage';
 
 
 document.addEventListener('DOMContentLoaded', () => {
