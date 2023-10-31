@@ -1,0 +1,55 @@
+##
+description = "Blog layout"
+
+[resources]
+vars[activeBlogCategory] = ""
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body class="blog-layout {{ 'page-' ~ this.page.id }}">
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="container">
+                {% set pageTitle = placeholder('pageTitle') %}
+                {% if pageTitle %}
+                    <header>
+                        <h1>{{ pageTitle }}</h1>
+                    </header>
+                {% endif %}
+                <div class="row g-5">
+                    <div class="col-md-8">
+                        <div class="pe-3">
+                            {% page %}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="position-sticky" style="top: 2rem;">
+                            {% partial 'blog/sidebar' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Mobile -->
+        {% partial 'site/mobile' %}
+
+        <!-- How the page is made -->
+        {% partial 'site/how-its-made' %}
+    </body>
+</html>

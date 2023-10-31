@@ -1,0 +1,47 @@
+##
+url = "/blog/author/:slug"
+layout = "default"
+title = "Display a Blog Author"
+
+[section author]
+handle = "Blog\Author"
+entrySlug = "{{ :slug }}"
+
+[collection blog]
+handle = "Blog\Post"
+
+[resources]
+vars[activeNavLink] = 'blog'
+vars[howItsMadeCmsTemplate] = 'cms:cms-page:blog/author.htm'
+vars[howItsMadeTailorBlueprint] = 'tailor:tailor-blueprint:blog/author.yaml'
+vars[howItsMadeTailorContent] = 'entries/blog_author/{{ author.id }}'
+==
+{% if author is empty %}
+    {% do abort(404) %}
+{% endif %}
+
+{% set authorPosts = blog.whereRelation('author', 'slug', author.slug).paginate(16) %}
+{% put pageTitle = author.title %}
+
+<main class="container">
+    <header>
+        <h1>Posts by {{ author.title }}</h1>
+    </header>
+    <div class="blog-featured row mb-2">
+        <div class="col-md-12">
+            <div class="card post-card mb-4">
+                <div class="card-body">
+                    {% partial 'elements/user-panel-author' user=author hideAllPosts=true %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-featured row row-cols-1 row-cols-xl-2 g-3 pb-5">
+        {% for post in authorPosts %}
+            {% partial 'blog/post-card' post=post %}
+        {% endfor %}
+    </div>
+    <nav class="blog-pagination" aria-label="Pagination">
+        {{ pager(authorPosts) }}
+    </nav>
+</main>

@@ -1,0 +1,27 @@
+##
+url = "/blog/archive/:year|(^[0-9]{4}$)/:month|(^0?[1-9]$)|(^1[0-2]$)"
+title = "Blog Archive"
+layout = "blog"
+
+[section blog]
+handle = "Blog\Post"
+
+[resources]
+vars[activeNavLink] = 'blog'
+vars[howItsMadeCmsTemplate] = 'cms:cms-page:blog/archive.htm'
+vars[howItsMadeTailorBlueprint] = 'tailor:tailor-blueprint:blog/post.yaml'
+vars[howItsMadeTailorContent] = 'entries/blog_post'
+==
+{% set dateParsed = date('1-'~this.param.month~'-'~this.param.year) %}
+{% set posts = blog
+    .where('published_at_year', this.param.year)
+    .where('published_at_month', this.param.month)
+    .get()
+%}
+{% put pageTitle = 'Articles from ' ~ dateParsed|date('F Y') %}
+
+<div class="blog-featured row row-cols-1 row-cols-xl-2 g-3 pb-5">
+    {% for post in posts %}
+        {% partial 'blog/post-card' post=post %}
+    {% endfor %}
+</div>

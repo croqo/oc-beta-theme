@@ -1,0 +1,44 @@
+##
+description = "Wiki layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body class="wiki-layout {{ 'page-' ~ this.page.id }}">
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <div class="position-sticky" style="top: 2rem;">
+                            {% partial 'wiki/sidebar' %}
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        {% page %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Mobile -->
+        {% partial 'site/mobile' %}
+
+        <!-- How the page is made -->
+        {% partial 'site/how-its-made' %}
+
+    </body>
+</html>

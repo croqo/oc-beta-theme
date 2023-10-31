@@ -1,0 +1,52 @@
+##
+url = "/wiki/search"
+layout = "default"
+title = "Search Wiki Articles"
+meta_title = "Search - Wiki"
+
+[collection wiki]
+handle = "Wiki\Article"
+
+[resources]
+vars[activeNavLink] = "wiki"
+vars[howItsMadeCmsTemplate] = 'cms:cms-page:wiki/search.htm'
+vars[howItsMadeTailorBlueprint] = 'tailor:tailor-blueprint:wiki/article.yaml'
+vars[howItsMadeTailorContent] = 'entries/wiki_article'
+==
+{% set searchTerm = get('term')|trim %}
+{% set articles = wiki.searchWhere(searchTerm, ['title', 'content']).paginate(4) %}
+{% put pageTitle=searchTerm ~ ' - Search Results' %}
+
+<div class="container">
+    <header>
+        <h1>{{ searchTerm }} - Search Results</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="mb-5">
+                <div class="input-group">
+                    <div class="form-control-search">
+                        <input type="text" name="term" class="form-control" placeholder="Search" value="{{ searchTerm }}">
+                        <span class="search-icon"></span>
+                    </div>
+                </div>
+            </form>
+
+            <div class="pb-3">
+                {% for article in articles %}
+                    <div class="card mb-3">
+                        <div class="card-body pb-0">
+                            <h5 class="wiki-article-title">
+                                <a href="{{ 'wiki/article'|page({ slug: article.slug }) }}">{{ article.title }}</a>
+                            </h5>
+                            {{ article.content|html_limit(250)|raw }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <nav class="wiki-pagination" aria-label="Pagination">
+                {{ pager(articles, { withQuery: true }) }}
+            </nav>
+        </div>
+    </div>
+</div>

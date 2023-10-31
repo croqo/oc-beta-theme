@@ -1,0 +1,31 @@
+##
+url = "/blog"
+layout = "blog"
+title = "Blog Homepage"
+
+[collection blog]
+handle = "Blog\Post"
+
+[global blogConfig]
+handle = "Blog\Config"
+
+[resources]
+vars[activeNavLink] = 'blog'
+vars[howItsMadeCmsTemplate] = 'cms:cms-page:blog/index.htm'
+vars[howItsMadeTailorBlueprint] = 'tailor:tailor-blueprint:blog/post.yaml'
+vars[howItsMadeTailorContent] = 'entries/blog_post'
+==
+{% set posts = blog.paginate(5) %}
+{% set archiveDates = blog
+    .selectRaw("count(*) as post_count, published_at_month, published_at_year")
+    .groupBy('published_at_month', 'published_at_year').get()
+%}
+{% put pageTitle = blogConfig.blog_name ?: 'Blog' %}
+
+{% for post in posts %}
+    {% partial 'blog/post-card' post=post bannerCss='banner-lg' %}
+{% endfor %}
+
+<nav class="blog-pagination" aria-label="Pagination">
+    {{ pager(posts) }}
+</nav>

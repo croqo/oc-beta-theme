@@ -1,0 +1,8 @@
+{
+    "name": "croqo/beta-theme",
+    "type": "october-theme",
+    "description": "Default \"Demo\" October CMS theme fork.",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

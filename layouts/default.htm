@@ -1,0 +1,32 @@
+##
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body class="{{ 'page-'~this.page.id }}">
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Mobile -->
+        {% partial 'site/mobile' %}
+
+        <!-- How the page is made -->
+        {% partial 'site/how-its-made' %}
+    </body>
+</html>
