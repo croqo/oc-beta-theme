@@ -1,8 +1,14 @@
 {
-    "name": "croqo/beta-theme",
+    "name": "crocwork/beta-theme",
     "type": "october-theme",
-    "description": "Default \"Demo\" October CMS theme fork.",
+    "description": "Quick start website template",
     "require": {
         "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev",
+    "config": {
+      "allow-plugins": {
+        "composer/installers": true
+      }
     }
 }

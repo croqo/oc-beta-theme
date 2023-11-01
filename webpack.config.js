@@ -3,15 +3,9 @@ const webpack = require('webpack');
 module.exports = {
     devtool: 'inline-source-map',
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            'window.$': 'jquery',
-        }),
+        // new webpack.ProvidePlugin({
+        //     oc: 'octobercms',
+        // }),
     ],
-    externals: {
-        // Use external version of jQuery
-        jquery: 'jQuery'
-    },
+    externals: 'octobercms',
 };
