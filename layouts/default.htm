@@ -1,32 +1,27 @@
 ##
 description = "Default layout"
+
 ==
 <!DOCTYPE html>
-<html>
+<html lang={{ this.site.locale|default(this.site.hard_locale) }}>
     <head>
-        {% partial 'site/meta' %}
+        {% partial 'meta' %}
     </head>
-    <body class="{{ 'page-'~this.page.id }}">
+    <body data-page-id={{ this.page.id }}>
 
         <!-- Header -->
-        <header id="layout-header">
+        <header id="app-header">
             {% partial 'site/header' %}
         </header>
 
         <!-- Content -->
-        <section id="layout-content">
+        <main id="app-content">
             {% page %}
-        </section>
+        </main>
 
         <!-- Footer -->
-        <footer id="layout-footer">
+        <footer id="app-footer">
             {% partial 'site/footer' %}
         </footer>
-
-        <!-- Mobile -->
-        {% partial 'site/mobile' %}
-
-        <!-- How the page is made -->
-        {% partial 'site/how-its-made' %}
     </body>
 </html>

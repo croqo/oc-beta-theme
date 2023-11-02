@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{
+    this.page.meta_title|default(this.page.title) ~ ' | ' ~ this.site.name
+}}</title>
+
+{% if this.page.meta_title is not empty %}
+    <meta name="title" content="{{ this.page.meta_title }}">
+{% endif %}
+{% if this.page.meta_description is not empty %}
+    <meta name="description" content="{{ this.page.meta_description }}">
+{% endif %}
+{#
+    <meta name="author" content="October CMS">
+    <meta name="generator" content="October CMS">
+#}
+
+{% meta %}
+
+<link
+    href="{{ [
+        'assets/sass/utilities/_all.sass',
+        'assets/sass/base/_all.sass',
+        'assets/sass/elements/_all.sass',
+        'assets/sass/form/_all.sass',
+        'assets/sass/components/_all.sass',
+        'assets/sass/grid/_all.sass',
+        'assets/sass/helpers/_all.sass',
+        'assets/sass/layout/_all.sass',
+        ]|theme }}"
+    rel="stylesheet"
+>
+{% styles %}
+<script defer src={{ ['@framework.bundle']|theme }}></script>
+{% scripts %}
