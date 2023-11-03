@@ -3,3 +3,4 @@
 /vendor
 *.lock
 *-lock.json
+assets/css/index.css

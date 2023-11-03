@@ -17,5 +17,5 @@ mix.webpackConfig(webpackConfig)
     .setPublicPath('');
 
 mix
-    .copy('node_modules/bulma/sass', 'assets/sass')
+    .sass('assets/sass/index.sass', 'assets/css')
 ;

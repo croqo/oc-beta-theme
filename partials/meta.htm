@@ -17,19 +17,7 @@
 
 {% meta %}
 
-<link
-    href="{{ [
-        'assets/sass/utilities/_all.sass',
-        'assets/sass/base/_all.sass',
-        'assets/sass/elements/_all.sass',
-        'assets/sass/form/_all.sass',
-        'assets/sass/components/_all.sass',
-        'assets/sass/grid/_all.sass',
-        'assets/sass/helpers/_all.sass',
-        'assets/sass/layout/_all.sass',
-        ]|theme }}"
-    rel="stylesheet"
->
+<link rel="stylesheet" href={{ ['assets/css/index.css']|theme }}>
 {% styles %}
 <script defer src={{ ['@framework.bundle']|theme }}></script>
 {% scripts %}
