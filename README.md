@@ -11,10 +11,10 @@ Have fun!
 
 If you clone this theme to use as a starting point. You may follow these instructions to clean up:
 
-1. Delete the `pages/ajax.htm` and `pages/plugins.htm` files.
-2. Delete the `partials/calcresult.htm` partial file.
-3. Delete the `partials/explain/` directory and contents.
-4. Delete the `content/placeholder/` directory and contents.
+1. ✅ Delete the `pages/ajax.htm` and `pages/plugins.htm` files.
+2. ✅ Delete the `partials/calcresult.htm` partial file.
+3. ✅ Delete the `partials/explain/` directory and contents.
+4. ✅ Delete the `content/placeholder/` directory and contents.
 
 ## Combining CSS and JavaScript
 

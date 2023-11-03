@@ -1,7 +1,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{
-    this.page.meta_title|default(this.page.title) ~ ' | ' ~ this.site.name
+    (
+        this.page.meta_title|default(this.page.title) ~ ' | ' ~ this.site.name
+    )
 }}</title>
 
 {% if this.page.meta_title is not empty %}
@@ -10,14 +12,14 @@
 {% if this.page.meta_description is not empty %}
     <meta name="description" content="{{ this.page.meta_description }}">
 {% endif %}
-{#
-    <meta name="author" content="October CMS">
-    <meta name="generator" content="October CMS">
-#}
+
+<meta name="author" content="{{ this.theme.config.author }}">
+<meta name="generator" content="{{ this.theme.config.name }}">
 
 {% meta %}
 
 <link rel="stylesheet" href={{ ['assets/css/index.css']|theme }}>
 {% styles %}
+
 <script defer src={{ ['@framework.bundle']|theme }}></script>
 {% scripts %}

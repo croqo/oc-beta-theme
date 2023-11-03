@@ -8,20 +8,22 @@ description = "Default layout"
         {% partial 'meta' %}
     </head>
     <body data-page-id={{ this.page.id }}>
+        <div class="hero is-fullheight is-danger">
+            <!-- Header -->
+            <header id="app-header" class="hero-head">
 
-        <!-- Header -->
-        <header id="app-header">
-            {% partial 'site/header' %}
-        </header>
+            </header>
 
-        <!-- Content -->
-        <main id="app-content">
-            {% page %}
-        </main>
+            <!-- Content -->
+            <main id="app-content" class="hero-body">
+                {% page %}
+            </main>
 
-        <!-- Footer -->
-        <footer id="app-footer">
-            {% partial 'site/footer' %}
-        </footer>
+            <!-- Footer -->
+            <footer id="app-footer" class="hero-foot">
+
+            </footer>
+
+        </div>
     </body>
 </html>
