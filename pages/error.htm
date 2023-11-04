@@ -1,14 +1,27 @@
-title = "Error Page (500)"
 url = "/error"
 layout = "default"
+title = "Error Page (500)"
 
-[resources]
-less[] = "pages/404.less"
-vars[howItsMadeCmsTemplate] = 'cms:cms-page:error.htm'
+[lottie]
+url = "https://assets-v2.lottiefiles.com/a/feef38e0-1151-11ee-be67-f7989aa2e605/g2QiCoFjjM.json"
+look = "image"
+ratio = "xMidYMid meet"
 ==
-<div class="container">
-    <div class="banner-404">
-        <h1>Error</h1>
-        <p>We're sorry, but something went wrong and the page cannot be displayed.</p>
-    </div>
-</div>
+<section class="section">
+        <div class="columns is-multiline is-centered is-vcentered">
+            <div class="column">
+                <div class="block">
+                    {% component 'lottie' %}
+                </div>
+
+            </div>
+            <div class="column is-narrow">
+                <div class="block">
+                    <figure class="notification is-black box">
+                        <h1 class="title">System Error</h1>
+                        <p class="subtitle">We're sorry, it looks like something crashed</p>
+                    </figure>
+                </div>
+            </div>
+        </div>
+</section>
