@@ -1,0 +1,28 @@
+##
+
+description = "Bulma / Hero"
+
+[resources]
+css[] = "index.css"
+js[] = "index.js"
+
+==
+<!DOCTYPE html>
+<html lang={{ this.site.locale|default(this.site.hard_locale) }}>
+    {% partial 'head' %}
+
+    <body data-page-id={{ this.page.id }}>
+        {% partial 'layouts/hero' body %}
+            {% put header %}
+
+            {% endput %}
+            {% put footer %}
+
+            {% endput %}
+            <main id="app-content" class="hero-body">
+                {% page %}
+            </main>
+        {% endpartial %}
+
+    </body>
+</html>

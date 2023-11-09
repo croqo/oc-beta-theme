@@ -1,0 +1,23 @@
+##
+==
+<div class="hero {{
+        placeholder('size')|default('is-fullheight')
+        ~ ' '
+        ~ placeholder('color')|default('')
+    }}">
+    <!-- Header -->
+    <header id="app-header" class="hero-head">
+        {% placeholder header title = "hero-head" type = "html" %}
+    </header>
+
+    <!-- Content -->
+    <main id="app-content" class="hero-body">
+        {{ body|raw }}
+    </main>
+
+    <!-- Footer -->
+    <footer id="app-footer" class="hero-foot">
+        {% placeholder footer title = "hero-foot" type = "html" %}
+    </footer>
+
+</div>
