@@ -17,5 +17,6 @@ mix.webpackConfig(webpackConfig)
     .setPublicPath('');
 
 mix
-    .sass('assets/sass/index.sass', 'assets/css')
+    .js('src/js/index.js', 'assets/js')
+    .sass('src/sass/index.sass', 'assets/css')
 ;
