@@ -1,0 +1,42 @@
+url = "/soon"
+layout = "default"
+title = "Coming Soon"
+is_hidden = 1
+
+[lottie]
+url = "https://hell.lol/storage/app/uploads/public/654/bf8/788/654bf8788bd30651057084.json"
+look = "image"
+ratio = "xMidYMid meet"
+==
+{% put heroColor %}is-dark{% endput %}
+<div class="container">
+    <div class="columns is-multiline is-centered is-vcentered">
+        <div class="column is-narrow is-vcentered">
+            <div class="tile">
+                <div class="tile is-vertical">
+                    <div class="m-4 block">
+                        <h2 class="title">OFFLINE</h2>
+                    </div>
+                </div>
+                <div class="message is-dark">
+                    <div class="message-body">
+                        <div class="content">
+                            <p>
+                                Sorry, we're <strong>closed</strong>.
+                            </p>
+                            <p>
+                                Website is under construction now. Available online <abbr title="As Soon As Possible">ASAP</abbr>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="block">
+                {% component 'lottie' %}
+            </div>
+        </div>
+    </div>
+</div>
