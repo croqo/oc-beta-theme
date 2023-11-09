@@ -16,6 +16,7 @@
         "sass-loader": "^13.3.2"
     },
     "dependencies": {
+        "@twa-dev/sdk": "^6.9.1",
         "bulma": "^0.9.4",
         "octobercms": "^1.3.2"
     }
